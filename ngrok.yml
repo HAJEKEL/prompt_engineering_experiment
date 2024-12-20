@@ -1,0 +1,11 @@
+version: 2
+authtoken: 2knqqQuu9XdscuicwsTV4MFs3Qm_66caFpy7tUnz1EpuqKAd4
+region: eu
+tunnels:
+  image_server:
+    proto: http
+    addr: 8002
+    hostname: images-sunbird-dashing.ngrok-free.app
+    inspect: false
+
+ 
