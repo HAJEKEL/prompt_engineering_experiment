@@ -1,0 +1,3 @@
+[submodule "visio-verbal"]
+	path = visio-verbal
+	url = git@github.com:HAJEKEL/visio-verbal-interface.git
