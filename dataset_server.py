@@ -12,23 +12,11 @@ logging.info(f"Logging level set to {INFO}")
 
 app = FastAPI()
 
-# Configure CORS for public image server
-origins = [
-    FRONTEND_URL
-]
-
 # Log information about the configured CORS origins
 logging.info("Configuring CORS middleware with the following allowed origins:")
 for origin in origins:
     logging.info(f" - {origin}")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["GET"],
-    allow_headers=["*"],
-)
 
 # Mount static directory for images
 app.mount("/images", StaticFiles(directory="/experiment_images/1_with_gaze/crop"), name="images")
