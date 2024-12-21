@@ -7,19 +7,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
 # Configure logging with the specified level
-logging.basicConfig(level=INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-logging.info(f"Logging level set to {INFO}")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.info(f"Logging level set to {logging.INFO}")
 
 app = FastAPI()
 
-# Log information about the configured CORS origins
-logging.info("Configuring CORS middleware with the following allowed origins:")
-for origin in origins:
-    logging.info(f" - {origin}")
-
 
 # Mount static directory for images
-app.mount("/images", StaticFiles(directory="/experiment_images/1_with_gaze/crop"), name="images")
+app.mount("/images", StaticFiles(directory="./experiment_images/1_with_gaze/crop"), name="images")
 
 # Root endpoint for public image server
 @app.get("/", response_class=HTMLResponse)

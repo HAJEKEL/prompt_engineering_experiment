@@ -1,0 +1,13 @@
+{
+    "name": "prompt_engineering_experiment",
+    "build": {
+        "context": "..",
+        "dockerfile": "../Dockerfile"
+    },
+    "runArgs": [
+        "--network=host"
+    ],
+    "remoteUser": "henk",
+    "updateRemoteUserUID": true,
+    "postStartCommand": "ngrok config add-authtoken $(grep NGROK_AUTH_TOKEN /app/.env | cut -d '=' -f2)"
+}

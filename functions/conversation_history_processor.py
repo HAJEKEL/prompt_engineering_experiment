@@ -28,7 +28,7 @@ class ConversationHistoryProcessor:
             with open(self.conversation_history_file, 'w') as f:
                 json.dump([], f)
 
-    def get_recent_conversation_history(self):
+    def get_recent_conversation_history(self,num_messages=10):
         """
         Retrieves the recent conversation history along with the system role.
         """
@@ -50,21 +50,27 @@ class ConversationHistoryProcessor:
             data = []
 
         # Append last 10 items of data to messages
-        messages.extend(data[-10:])
+        messages.extend(data[-num_messages:])
 
         return messages
 
-    def update_conversation_history(self, transcription, response, image_url=None):
+    def update_conversation_history(self, transcription, response, image_url=None, include_images=True):
         """
         Updates the conversation history with a new transcription and response.
-        If image_url is provided, it includes the image in the message.
+        If image_url is provided, it includes the image in the message based on the include_images flag.
+
+        Args:
+            transcription (str): The transcription of the user's message.
+            response (str): The system's response to the user.
+            image_url (str, optional): The URL of the image to include, if any. Defaults to None.
+            include_images (bool, optional): Flag to determine whether to include the image in the history. Defaults to True.
         """
         # Get recent conversation history excluding the system role
         recent_conversation_history = self.get_recent_conversation_history()[1:]
 
         # Create new message entry
         content = [{"type": "text", "text": transcription}]
-        if image_url:
+        if image_url and include_images:
             content.append({"type": "image_url", "image_url": {"url": image_url}})
 
         transcription_entry = {
@@ -82,6 +88,7 @@ class ConversationHistoryProcessor:
         # Save updated conversation history
         with open(self.conversation_history_file, 'w') as f:
             json.dump(recent_conversation_history, f)
+
 
     def reset_conversation_history(self):
         """

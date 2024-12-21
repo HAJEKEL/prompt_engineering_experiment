@@ -9,8 +9,6 @@ import re
 from pathlib import Path
 import ffmpeg
 
-# Speech Recognition Imports
-from vosk import Model, KaldiRecognizer, SetLogLevel
 # OpenAI API Imports
 import openai
 from decouple import config, RepositoryEnv
@@ -22,13 +20,8 @@ class SpeechProcessor:
     """
     A class to handle speech-to-text (STT), response generation using OpenAI's API, and text-to-speech (TTS).
     """
-    # Class variable for Vosk model path
-    VOSK_MODEL_PATH = Path(__file__).resolve().parent.parent / "vosk-model-small-en-us-0.15"
     
-    def __init__(self, log_level: int = -1):
-        # Initialize Vosk model for STT
-        SetLogLevel(log_level))  # Suppress Vosk logs
-        self.model = self.load_vosk_model()
+    def __init__(self):
 
         # Initialize OpenAI client
         self.initialize_openai_client()
