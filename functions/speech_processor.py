@@ -115,4 +115,7 @@ if __name__ == "__main__":
     processor = SpeechProcessor()
     # Test get_gpt_response_vlm
     image_url = "https://www.xenos.nl/pub/cdn/582043/800/582043.jpg"
-    gpt_response = processor.get_gpt_response_vlm(transcript, image_url=image_url)
+    # Dummy transcript
+    transcript = "What is the stiffness matrix for a groove in the x direction?"
+
+    gpt_response = processor.get_gpt_response_vlm()
