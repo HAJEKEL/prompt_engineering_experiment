@@ -1,0 +1,170 @@
+[
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Can you help me determine the stiffness matrix of this part of the groove?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/1.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "The image shows a 3D printed structure with grooves in different directions. I see that the red circle indicates an insertion point or exit point   of the structure, so we want the robot to remain compliant in all directions to avoid damaging the groove upon entry.\n\n**Assumptions**\n1. The groove is not yet providing guidance, so we do not stiffen along any single axis.\n2. We keep stiffness low and uniform in all directions to let the pin smoothly enter.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "I need the stiffness matrix for this next area of the groove."
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/2.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "The red circle indicates a groove that primarily runs along the Y-axis. \n\n**Assumptions**\n1. High stiffness is aligned with Y.\n2. We set 250 N/m along Y, while X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Would you help me find the right stiffness for this groove section?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/3.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "Here, the red circle indicates a groove that is oriented along the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Can you suggest the stiffness matrix for this part of the groove structure?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/4.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "This section, indicated by the red circle, appears similar to image 2, oriented along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Could you advise me on the stiffness matrix for this angled groove portion?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/5.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "The red circl indicats a groove that is slanted at about 45° in the Y–Z plane.\n\n**Assumptions**\n1. The groove splits equally between Y and Z.\n2. Each is 0.5√2 × 250 ≈ 176.78 N/m.\n3. X remains at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 176.78, 0],\n    [0, 0, 176.78]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Please determine the appropriate stiffness matrix for this segment."
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/6.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "Again, the red circl indicates a groove primarily aligned with Y, just like images 2 and 4.\n\n**Assumptions**\n1. Stiffness is 250 along Y.\n2. X and Z remain at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Could you let me know the stiffness matrix we need here?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/7.jpg"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "It appears that the red circle indicates another enterance/exit of the groove structure, so uniform compliance is appropriate.\n\n**Assumptions**\n1. No single axis is favored.\n2. Stiffness is 100 N/m in x, y, and z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    }
+]

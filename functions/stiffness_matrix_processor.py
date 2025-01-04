@@ -32,7 +32,7 @@ class StiffnessMatrixProcessor:
         """
         os.makedirs(self.matrices_dir, exist_ok=True)
 
-    def extract_stiffness_matrix(self, response):
+    def extract_stiffness_matrix(self, response, role_key):
         """
         Extracts the stiffness matrix from a response string and saves it to a file.
 
@@ -66,14 +66,14 @@ class StiffnessMatrixProcessor:
                 return None, None
 
             # Save stiffness matrix to a file
-            matrix_filename = f"{uuid.uuid4()}.json"
+            matrix_filename = f"{role_key}.json"
             matrix_file_path = os.path.join(self.matrices_dir, matrix_filename)
 
             with open(matrix_file_path, "w") as matrix_file:
                 json.dump(stiffness_matrix, matrix_file)
             logging.info(f"Stiffness matrix extracted and saved at {matrix_file_path}: {stiffness_matrix}")
 
-            return stiffness_matrix
+            return stiffness_matrix, matrix_file_path
 
         except commentjson.JSONLibraryException as e:
             logging.error(f"Error parsing JSON with comments: {e}")

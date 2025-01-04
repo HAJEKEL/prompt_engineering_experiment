@@ -1,0 +1,41 @@
+image1:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]
+
+image2:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 250, 0]
+    - [0, 0, 100]
+
+image3:
+  stiffness_matrix:
+    - [250, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]
+
+image4:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 250, 0]
+    - [0, 0, 100]
+
+image5:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 176.78, 0]
+    - [0, 0, 176.78]
+
+image6:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 250, 0]
+    - [0, 0, 100]
+
+image7:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]

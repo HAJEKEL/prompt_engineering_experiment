@@ -14,21 +14,29 @@ import openai
 from decouple import config, RepositoryEnv
 
 # Import the ConversationManager class
-from conversation_history_processor import ConversationHistoryProcessor
+from functions.conversation_history_processor import ConversationHistoryProcessor
 
 class SpeechProcessor:
     """
     A class to handle speech-to-text (STT), response generation using OpenAI's API, and text-to-speech (TTS).
     """
     
-    def __init__(self):
-
-        # Initialize OpenAI client
+    def __init__(self, system_role_content, conversation_history_file="messages/conversation_history_speech_processor.json",pre_knowledge_messages=None):
+        """
+        Optionally allow passing in the system role content and conversation file,
+        so we can customize it if needed.
+        """
+        # Initialize the OpenAI client
         self.initialize_openai_client()
 
-        # Initialize the ConversationManager
-        self.conversation_history_processor = ConversationHistoryProcessor()
+        # Initialize the conversation manager
+        # If no custom role is provided, it falls back to a generic default.
+        self.conversation_history_processor = ConversationHistoryProcessor(
+            system_role_content=system_role_content,
+            conversation_history_file=conversation_history_file, pre_knowledge_messages=pre_knowledge_messages
+        )
 
+    @staticmethod
     def add_parent_to_sys_path():
         """
         Adds the parent directory to sys.path for module imports.
@@ -111,11 +119,12 @@ class SpeechProcessor:
             return None
 
 if __name__ == "__main__":
-    # Create an instance of SpeechProcessor
+    # Example usage/testing
     processor = SpeechProcessor()
-    # Test get_gpt_response_vlm
-    image_url = "https://www.xenos.nl/pub/cdn/582043/800/582043.jpg"
-    # Dummy transcript
-    transcript = "What is the stiffness matrix for a groove in the x direction?"
+    test_image_url = "https://www.xenos.nl/pub/cdn/582043/800/582043.jpg"
+    test_transcript = "What is the stiffness matrix for a groove oriented along X? And what do you see in the image?"
 
-    gpt_response = processor.get_gpt_response_vlm()
+    # Make a request to the GPT model (will fail if you don't have valid OpenAI creds)
+    gpt_response = processor.get_gpt_response_vlm(test_transcript, image_url=test_image_url)
+    if gpt_response:
+        print("GPT Response:", gpt_response)

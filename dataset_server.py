@@ -14,7 +14,7 @@ app = FastAPI()
 
 
 # Mount static directory for images
-app.mount("/images", StaticFiles(directory="./experiment_images/1_with_gaze/crop"), name="images")
+app.mount("/images", StaticFiles(directory="./experiment_data/image_1_with_gaze/crop"), name="images")
 
 # Root endpoint for public image server
 @app.get("/", response_class=HTMLResponse)

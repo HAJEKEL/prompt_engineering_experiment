@@ -11,14 +11,16 @@ class ConversationHistoryProcessor:
     A class to manage conversation history for a torque-controlled robot interface.
     """
 
-    def __init__(self, system_role_content, conversation_history_file):
+    def __init__(self, system_role_content, conversation_history_file,pre_knowledge_messages=None):
         """
         Initializes the ConversationHistoryProcessor with a specific system role content 
         and a unique conversation history file.
         """
         self.system_role_content = system_role_content
         self.conversation_history_file = conversation_history_file
+        self.pre_knowledge_messages = pre_knowledge_messages or []  # <-- NEW: store the extra messages
         self.ensure_history_file()
+
 
     def ensure_history_file(self):
         """
@@ -41,6 +43,10 @@ class ConversationHistoryProcessor:
             "content": [{"type": "text", "text": self.system_role_content}]
         }
         messages.append(system_role)
+
+        # 2) Append optional pre-knowledge messages  # <-- NEW BLOCK
+        for msg in self.pre_knowledge_messages:
+            messages.append(msg)
 
         # Load conversation history
         try:
@@ -66,8 +72,10 @@ class ConversationHistoryProcessor:
             image_url (str, optional): The URL of the image to include, if any. Defaults to None.
             include_images (bool, optional): Flag to determine whether to include the image in the history. Defaults to True.
         """
+        skip_count = 1 + len(self.pre_knowledge_messages)  # <-- NEW
+
         # Get recent conversation history excluding the system role
-        recent_conversation_history = self.get_recent_conversation_history()[1:]
+        recent_conversation_history = self.get_recent_conversation_history()[skip_count:]
 
         # Create new message entry
         content = [{"type": "text", "text": transcription}]
@@ -102,40 +110,30 @@ class ConversationHistoryProcessor:
 
 
 if __name__ == "__main__":
-    # The YAML file is at: experiment_data/system_roles/roles.yaml
-    roles_yaml_path = os.path.join("experiment_data", "system_roles", "roles.yaml")
-    with open(roles_yaml_path, 'r', encoding='utf-8') as f:
-        roles_config = yaml.safe_load(f) # roles_config is now a dict with role0, role1, ..., role5
+    # Demonstration of usage
+    ground_truth_msgs = [
+        {
+            "role": "system",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "GroundTruth: For image 1, stiffness is 100 in x,y,z. For image 2, 250 in y, etc."
+                }
+            ]
+        }
+    ]
 
-    # Example user transcription and system response (for testing)
-    transcription_example = "Adjust the stiffness matrix for the new task."
-    response_example = "Here is the adjusted stiffness matrix for your scenario."
+    conv_manager = ConversationHistoryProcessor(
+        system_role_content="You are an expert on stiffness matrices.",
+        conversation_history_file="messages/test_history.json",
+        pre_knowledge_messages=ground_truth_msgs  # <-- NEW: pass the ground-truth or any extra data here
+    )
 
-    # Iterate over each role, create a conversation manager, and test updating/retrieving the history
-    for role_key, role_info in roles_config.items():
-        # Retrieve the conversation history file path and the system role content
-        conversation_history_file = role_info["conversation_history_file"]
-        system_role_content = role_info["system_role_content"]
+    conv_manager.reset_conversation_history()
+    conv_manager.update_conversation_history(
+        transcription="What is the stiffness for image 1?",
+        response="Ground truth indicates 100 in all directions."
+    )
 
-        # Create an instance of the ConversationHistoryProcessor
-        conv_manager = ConversationHistoryProcessor(
-            system_role_content=system_role_content,
-            conversation_history_file=conversation_history_file
-        )
-
-        print(f"\n=== Testing {role_key} ===")
-
-        # Update the conversation history
-        conv_manager.update_conversation_history(
-            transcription=transcription_example,
-            response=response_example
-        )
-
-        # Retrieve and print recent conversation history
-        recent_history = conv_manager.get_recent_conversation_history()
-        print("Recent conversation history:")
-        print(json.dumps(recent_history, indent=2))
-
-        # Reset the conversation history
-        conv_manager.reset_conversation_history()
-        print(f"Reset conversation history for {role_key}.\n")
+    history = conv_manager.get_recent_conversation_history()
+    print(json.dumps(history, indent=2))
