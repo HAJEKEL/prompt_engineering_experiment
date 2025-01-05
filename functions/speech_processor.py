@@ -18,22 +18,33 @@ from functions.conversation_history_processor import ConversationHistoryProcesso
 
 class SpeechProcessor:
     """
-    A class to handle speech-to-text (STT), response generation using OpenAI's API, and text-to-speech (TTS).
+    A class to handle speech-to-text (STT), response generation using OpenAI's API, 
+    and text-to-speech (TTS).
     """
     
-    def __init__(self, system_role_content, conversation_history_file="messages/conversation_history_speech_processor.json",pre_knowledge_messages=None):
+    def __init__(
+        self,
+        system_role_content=None,
+        conversation_history_file="messages/conversation_history_speech_processor.json",
+        pre_knowledge_messages=None,
+        image_resolution="high"
+    ):
         """
-        Optionally allow passing in the system role content and conversation file,
-        so we can customize it if needed.
+        Optionally allow passing in the system role content, conversation file,
+        and an initial set of pre-knowledge messages. 
+        Also allows specifying image_resolution: "low" or "high".
         """
         # Initialize the OpenAI client
         self.initialize_openai_client()
 
+        # Store the image resolution for later use
+        self.image_resolution = image_resolution
+
         # Initialize the conversation manager
-        # If no custom role is provided, it falls back to a generic default.
         self.conversation_history_processor = ConversationHistoryProcessor(
-            system_role_content=system_role_content,
-            conversation_history_file=conversation_history_file, pre_knowledge_messages=pre_knowledge_messages
+            system_role_content=system_role_content or "You are a generic interface for stiffness matrix adjustment.",
+            conversation_history_file=conversation_history_file,
+            pre_knowledge_messages=pre_knowledge_messages
         )
 
     @staticmethod
@@ -67,50 +78,63 @@ class SpeechProcessor:
             str: The generated response from GPT.
         """
         try:
-            # Get recent conversation history
+            # 1. Get recent conversation history
             history = self.conversation_history_processor.get_recent_conversation_history()
 
-            # Prepare user message
+            # 2. Prepare user message
             content = [{"type": "text", "text": transcript}]
             if image_url:
                 # Add a cache-busting parameter to ensure fresh requests
                 image_url_with_cache = f"{image_url}?cache_bust={int(time.time())}"
 
                 # Verify URL accessibility before proceeding
-                response = requests.get(image_url_with_cache, timeout=20)
-                if response.status_code != 200:
-                    logging.error(f"Image URL {image_url_with_cache} is inaccessible with status code {response.status_code}")
+                resp = requests.get(image_url_with_cache, timeout=20)
+                if resp.status_code != 200:
+                    logging.error(
+                        f"Image URL {image_url_with_cache} is inaccessible with status code {resp.status_code}"
+                    )
                     return None
 
-                content.append({"type": "image_url", "image_url": {"url": image_url_with_cache}})
+                # Include resolution detail in the message, e.g., "low" or "high"
+                content.append({
+                    "type": "image_url",
+                    "image_url": {
+                        "url": image_url_with_cache,
+                        "detail": self.image_resolution  # "high" or "low"
+                    }
+                })
 
             user_message = {
                 "role": "user",
                 "content": content
             }
 
-            # Append the user message to the history
+            # 3. Append the user message to the conversation history
             history.append(user_message)
             logging.info("User message added to conversation history.")
+
+            # 4. Call the OpenAI API
             client = self.client
-            # Call the OpenAI API
             stream = client.chat.completions.create(
                 model="gpt-4o",
                 messages=history,
                 stream=True,
             )
-            gpt_response = ""  # Initialize an empty string to accumulate the response
 
-            
-            # Loop over the chunks from the stream
+            # 5. Accumulate the streamed response
+            gpt_response = ""
             for chunk in stream:
                 if chunk.choices[0].delta.content is not None:
-                    content = chunk.choices[0].delta.content
-                    gpt_response += content  # Accumulate the streamed content
+                    gpt_response += chunk.choices[0].delta.content
+
             logging.info(f"GPT response received: {gpt_response}")
 
-            # Update the conversation history with the assistant's response
-            self.conversation_history_processor.update_conversation_history(transcript, gpt_response, image_url=image_url)
+            # 6. Update the conversation history with the assistant's response
+            self.conversation_history_processor.update_conversation_history(
+                transcription=transcript,
+                response=gpt_response,
+                image_url=image_url
+            )
 
             return gpt_response
 
@@ -118,13 +142,17 @@ class SpeechProcessor:
             logging.error(f"Error in get_gpt_response_vlm: {e}")
             return None
 
+
 if __name__ == "__main__":
     # Example usage/testing
-    processor = SpeechProcessor()
+    processor = SpeechProcessor(
+        system_role_content="You are a matrix expert.",
+        image_resolution="low"   # you can switch to "high"
+    )
     test_image_url = "https://www.xenos.nl/pub/cdn/582043/800/582043.jpg"
     test_transcript = "What is the stiffness matrix for a groove oriented along X? And what do you see in the image?"
 
-    # Make a request to the GPT model (will fail if you don't have valid OpenAI creds)
+    # Make a request to the GPT model
     gpt_response = processor.get_gpt_response_vlm(test_transcript, image_url=test_image_url)
     if gpt_response:
         print("GPT Response:", gpt_response)

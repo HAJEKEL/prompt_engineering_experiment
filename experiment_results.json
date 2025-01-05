@@ -1,0 +1,1122 @@
+[
+  {
+    "stage": "ytraverse1",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse1",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner1",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "corner2",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "slant",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "ytraverse2",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role1",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role1",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role2",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role2",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role3",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role3",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role4",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role4",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role5",
+    "use_conv_prior": false,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "low",
+    "estimated_matrix": null,
+    "metrics": null
+  },
+  {
+    "stage": "exit",
+    "role": "role5",
+    "use_conv_prior": true,
+    "resolution": "high",
+    "estimated_matrix": null,
+    "metrics": null
+  }
+]
