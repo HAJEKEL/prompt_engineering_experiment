@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Trial 1/5, Stage 'xtraverse': Please describe the image and compute the stiffness matrix."
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/xtraverse.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The image shows a 3D printed part with a groove highlighted by a red circle, resembling a corner component.\n\n### Stiffness Matrix\nThis section runs along the X direction.\n\n**Assumptions:**\n1. High stiffness along X-axis.\n2. Y and Z are less stiff.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

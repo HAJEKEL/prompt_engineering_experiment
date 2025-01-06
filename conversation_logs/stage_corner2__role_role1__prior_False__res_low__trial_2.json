@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Trial 2/5, Stage 'corner2': Please describe the image and compute the stiffness matrix."
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/corner2.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The image shows a structure with a groove angling to the left and then downward, defining a corner path. The red circle indicates the user's gaze point on the groove.\n\n1. **Groove Orientation:** \n   - First part: Horizontal (X) right.\n   - Second part: Vertical (Y) down.\n\n2. **Local Groove Frame:** \n   - Initial X-axis aligned with the first straight segment.\n   - Y-axis toward depth of screen.\n   - Z-axis up.\n\n3. **Stiffness Values:** \n   - High stiffness along X (groove): 250 N/m.\n   - Lower stiffness along Y and Z: 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

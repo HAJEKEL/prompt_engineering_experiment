@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Trial 1/5, Stage 'slant': Please describe the image and compute the stiffness matrix."
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/slant.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The image shows a groove with a slant orientation. Let's compute the stiffness matrix based on the groove orientation.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [206.25, 0, 0],\n    [0, 206.25, 81.24999999999999],\n    [0, 81.24999999999999, 143.75]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

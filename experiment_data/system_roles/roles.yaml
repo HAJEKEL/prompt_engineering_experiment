@@ -10,7 +10,7 @@ role1:
     **Systematic Approach to Determine the Stiffness Matrix:**
     1. **Groove Orientation:** Identify groove direction in the camera frame (X right, Y depth, Z up).
     2. **Local Groove Frame:** Align the X-axis with the groove; Y and Z remain perpendicular.
-    3. **Stiffness Values:** High along the groove (1000 N/m) and lower off-axis (e.g., 100 N/m).
+    3. **Stiffness Values:** High along the groove (250 N/m) and lower off-axis (e.g., 100 N/m).
     4. **Construct Diagonal Matrix:** 
        \[
          K_{\text{groove}} = \begin{bmatrix}
@@ -59,7 +59,7 @@ role2:
     2. **Set Up Groove Coordinate System:**
        - Define the local x-axis along the groove, y and z perpendicular.
     3. **Assign Stiffness Along Each Axis:**
-       - High stiffness (e.g., 1000 N/m) along the groove axis, lower stiffness (e.g., 100 N/m) off-axis.
+       - High stiffness (e.g., 250 N/m) along the groove axis, lower stiffness (e.g., 100 N/m) off-axis.
     4. **Construct \( K_{\text{groove}} \):** 
        \[
          \begin{bmatrix}
@@ -104,12 +104,12 @@ role3:
     **Systematic Approach:**
     1. Identify groove orientation (camera frame: X right, Y depth, Z up).
     2. Define the groove coordinate system (X: groove axis, Y/Z: perpendicular).
-    3. High stiffness along X (~1000 N/m), lower along Y/Z (~100 N/m).
+    3. High stiffness along X (~250 N/m), lower along Y/Z (~100 N/m).
     4. Construct:
        \[
          K_{\text{groove}} = 
          \begin{bmatrix}
-         1000 & 0 & 0 \\
+         250 & 0 & 0 \\
          0 & 100 & 0 \\
          0 & 0 & 100
          \end{bmatrix}
@@ -204,7 +204,7 @@ role5:
     3. **Compose \( K_{\text{groove}} \):**
        \[
          \begin{bmatrix}
-         1000 & 0 & 0 \\
+         250 & 0 & 0 \\
          0 & 100 & 0 \\
          0 & 0 & 100
          \end{bmatrix}

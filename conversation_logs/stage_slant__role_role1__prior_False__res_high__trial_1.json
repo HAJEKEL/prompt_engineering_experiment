@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Trial 1/5, Stage 'slant': Please describe the image and compute the stiffness matrix."
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/slant.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The image shows a black object with a groove, and a red circle indicating the user's gaze. The groove appears to be oriented diagonally from the bottom-left to the top-right of the image.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [175.0, 0.0, 0.0],\n    [0.0, 175.0, 0.0],\n    [0.0, 0.0, 100.0]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

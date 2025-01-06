@@ -9,7 +9,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/1.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/entrance.jpg",
                     "detail": "high"
                 }
             }
@@ -34,7 +34,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/2.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/ytraverse1.jpg",
                     "detail": "high"
                 }
             }
@@ -59,7 +59,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/3.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/corner1.jpg",
                     "detail": "high"
                 }
             }
@@ -84,7 +84,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/4.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/xtraverse.jpg",
                     "detail": "high"
                 }
             }
@@ -109,7 +109,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/5.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/corner2.jpg",
                     "detail": "high"
                 }
             }
@@ -134,7 +134,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/6.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/slant.jpg",
                     "detail": "high"
                 }
             }
@@ -159,7 +159,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/7.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/ytraverse2.jpg",
                     "detail": "high"
                 }
             }
@@ -184,7 +184,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/8.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/exit.jpg",
                     "detail": "high"
                 }
             }

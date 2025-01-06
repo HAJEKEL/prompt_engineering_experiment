@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "Trial 1/5, Stage 'corner1': Please describe the image and compute the stiffness matrix."
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/corner1.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The image shows an object with a groove highlighted by a red circle. Let's compute the stiffness matrix based on the groove orientation.\n\n1. Groove Coordinate System:\n   - X: Along the groove axis.\n   - Y/Z: Perpendicular to the groove.\n\n2. Assuming groove orientation as identified, calculate the stiffness matrix along the defined axes.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+      }
+    ]
+  }
+]
