@@ -1,1 +1,0 @@
-[{"role": "user", "content": [{"type": "text", "text": "What is the stiffness for image 1?"}]}, {"role": "system", "content": [{"type": "text", "text": "Ground truth indicates 100 in all directions."}]}]
