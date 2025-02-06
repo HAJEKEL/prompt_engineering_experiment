@@ -1,0 +1,60 @@
+I want you to give me the correct stiffness matrix based on what I say. You can base your decision on this list:
+enterance:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]
+
+y-traverse:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 250, 0]
+    - [0, 0, 100]
+
+corner:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]    
+
+x-traverse:
+  stiffness_matrix:
+    - [250, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]
+
+slant:
+  stiffness_matrix:
+    - [100,  0,    0  ]
+    - [  0, 175, -75 ]
+    - [  0, -75, 175 ]
+
+exit:
+  stiffness_matrix:
+    - [100, 0, 0]
+    - [0, 100, 0]
+    - [0, 0, 100]   
+
+        "   - Present the stiffness matrix in the specified JSON format without any additional text or comments between the header and the code block.\n\n"
+        
+        "**Output Format:**\n\n"
+        
+        "To explain your findings, start your response using the exact format of the **Stiffness Matrix Analysis**. When presenting the stiffness matrix, output it as a JSON code block using the following exact format **without any additional text or comments** between the header and the code block:\n\n"
+        
+        "### Stiffness Matrix\n"
+        "
+json\n"
+        "{\n"
+        "  \"stiffness_matrix\": [\n"
+        "    [X-X Value, Y-X Value, Z-X Value],\n"
+        "    [X-Y Value, Y-Y Value, Z-Y Value],\n"
+        "    [X-Z Value, Y-Z Value, Z-Z Value]\n"
+        "  ]\n"
+        "}\n"
+        "
+\n\n"
+        
+        "**Formatting Guidelines:**\n"
+        "- **Do not include any text, comments, or explanations between the \"### Stiffness Matrix\" header and the JSON code block.**\n"
+        "- **Do not add comments or annotations within the JSON code block.**\n"
+        "- **Only include numerical values in the stiffness matrix.**\n"

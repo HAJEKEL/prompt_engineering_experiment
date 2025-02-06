@@ -30,9 +30,9 @@ corner2:
 
 slant:
   stiffness_matrix:
-    - [100, 0, 0]
-    - [0, 176.78, 0]
-    - [0, 0, 176.78]
+    - [100,  0,    0  ]
+    - [  0, 175, -75 ]
+    - [  0, -75, 175 ]
 
 ytraverse2:
   stiffness_matrix:

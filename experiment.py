@@ -23,12 +23,7 @@ def main():
     # 2) Prepare the stiffness matrix processor (for parsing GPT responses)
     stiffness_processor = StiffnessMatrixProcessor(matrices_dir="matrices")
 
-    # 3) Load ground-truth conversation primer
-    ground_truth_file = os.path.join("experiment_data", "labels", "ground_truth_messages.json")
-    with open(ground_truth_file, 'r', encoding='utf-8') as f:
-        ground_truth_messages = json.load(f)
-
-    # 4) Load the ground-truth stiffness matrices for each stage
+    # 3) Load the ground-truth stiffness matrices for each stage
     gt_stiffness_file = os.path.join("experiment_data", "labels", "ground_truth_stiffness.yaml")
     with open(gt_stiffness_file, 'r', encoding='utf-8') as f:
         gt_stiffness_data = yaml.safe_load(f)
@@ -48,7 +43,9 @@ def main():
     # Roles (e.g. ["role1","role2","role3","role4","role5"])
     system_role_keys = list(roles_config.keys())
 
-    conversation_prior_options = [False, True]
+    # Conversation prior can be 'none', 'home', or 'lab'
+    conversation_prior_options = ["none", "home", "lab"]
+    # Image resolution options
     resolution_options = ["low", "high"]
 
     evaluator = StiffnessMatrixEvaluator()
@@ -70,8 +67,20 @@ def main():
             system_role_content = role_info["system_role_content"]
             conversation_history_file = role_info["conversation_history_file"]
 
-            for use_conv_prior in conversation_prior_options:
-                pre_knowledge = ground_truth_messages if use_conv_prior else None
+            for conversation_prior in conversation_prior_options:
+                # Select which ground-truth messages to load (or none)
+                if conversation_prior == "none":
+                    pre_knowledge = None
+                elif conversation_prior == "home":
+                    gt_path = os.path.join("experiment_data", "labels", "ground_truth_messages_home.json")
+                    with open(gt_path, 'r', encoding='utf-8') as f:
+                        pre_knowledge = json.load(f)
+                elif conversation_prior == "lab":
+                    gt_path = os.path.join("experiment_data", "labels", "ground_truth_messages_lab.json")
+                    with open(gt_path, 'r', encoding='utf-8') as f:
+                        pre_knowledge = json.load(f)
+                else:
+                    raise ValueError(f"Unknown conversation_prior option: {conversation_prior}")
 
                 for resolution in resolution_options:
                     for repetition in range(num_repetitions):
@@ -107,18 +116,18 @@ def main():
                         if not gpt_response:
                             logging.warning(
                                 f"No response for stage='{stage}', role='{role_key}', "
-                                f"conv_prior={use_conv_prior}, resolution='{resolution}', trial={repetition+1}"
+                                f"conversation_prior={conversation_prior}, resolution='{resolution}', trial={repetition+1}"
                             )
                             result_record = {
                                 "stage": stage,
                                 "role": role_key,
-                                "use_conv_prior": use_conv_prior,
+                                "conversation_prior": conversation_prior,
                                 "resolution": resolution,
                                 "repetition": repetition + 1,
                                 "estimated_matrix": None,
                                 "metrics": None,
                                 "conv_history_file": build_conversation_log_filename(
-                                    stage, role_key, use_conv_prior, resolution, repetition
+                                    stage, role_key, conversation_prior, resolution, repetition
                                 )
                             }
                             results.append(result_record)
@@ -131,18 +140,18 @@ def main():
                         if not estimated_matrix:
                             logging.warning(
                                 f"Could not extract a valid stiffness matrix for stage='{stage}', role='{role_key}', "
-                                f"conv_prior={use_conv_prior}, resolution='{resolution}', trial={repetition+1}"
+                                f"conversation_prior={conversation_prior}, resolution='{resolution}', trial={repetition+1}"
                             )
                             result_record = {
                                 "stage": stage,
                                 "role": role_key,
-                                "use_conv_prior": use_conv_prior,
+                                "conversation_prior": conversation_prior,
                                 "resolution": resolution,
                                 "repetition": repetition + 1,
                                 "estimated_matrix": None,
                                 "metrics": None,
                                 "conv_history_file": build_conversation_log_filename(
-                                    stage, role_key, use_conv_prior, resolution, repetition
+                                    stage, role_key, conversation_prior, resolution, repetition
                                 )
                             }
                             results.append(result_record)
@@ -158,13 +167,13 @@ def main():
                         result_record = {
                             "stage": stage,
                             "role": role_key,
-                            "use_conv_prior": use_conv_prior,
+                            "conversation_prior": conversation_prior,
                             "resolution": resolution,
                             "repetition": repetition + 1,
                             "estimated_matrix": estimated_matrix,
                             "metrics": metrics,
                             "conv_history_file": build_conversation_log_filename(
-                                stage, role_key, use_conv_prior, resolution, repetition
+                                stage, role_key, conversation_prior, resolution, repetition
                             )
                         }
                         results.append(result_record)
@@ -177,6 +186,7 @@ def main():
     with open(results_file, "w", encoding='utf-8') as f:
         json.dump(results, f, indent=2)
     logging.info(f"All experiments completed. Results saved to '{results_file}'.")
+
 
 def is_numeric_matrix(stiffness_matrix):
     """
@@ -195,7 +205,8 @@ def is_numeric_matrix(stiffness_matrix):
         logging.warning("Matrix contains non-numeric elements.")
         return False
 
-def build_conversation_log_filename(stage, role_key, use_conv_prior, resolution, repetition):
+
+def build_conversation_log_filename(stage, role_key, conversation_prior, resolution, repetition):
     """
     Builds a unique conversation log filename based on the trial parameters.
     """
@@ -203,9 +214,10 @@ def build_conversation_log_filename(stage, role_key, use_conv_prior, resolution,
     os.makedirs(folder, exist_ok=True)
     dest_filename = (
         f"stage_{stage}__role_{role_key}"
-        f"__prior_{use_conv_prior}__res_{resolution}__trial_{repetition+1}.json"
+        f"__prior_{conversation_prior}__res_{resolution}__trial_{repetition+1}.json"
     )
     return os.path.join(folder, dest_filename)
+
 
 def save_conversation_history(conversation_history_file, dest_path):
     """
@@ -228,6 +240,7 @@ def save_conversation_history(conversation_history_file, dest_path):
         logging.info(f"Conversation history saved to '{dest_path}'.")
     except Exception as e:
         logging.error(f"Failed to save conversation history to '{dest_path}': {e}")
+
 
 if __name__ == "__main__":
     main()

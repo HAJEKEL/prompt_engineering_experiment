@@ -9,7 +9,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/entrance.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/enh.jpg",
                     "detail": "high"
                 }
             }
@@ -34,7 +34,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/ytraverse1.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/y1h.jpg",
                     "detail": "high"
                 }
             }
@@ -59,7 +59,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/corner1.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/c1h.jpg",
                     "detail": "high"
                 }
             }
@@ -84,7 +84,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/xtraverse.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/xh.jpg",
                     "detail": "high"
                 }
             }
@@ -109,7 +109,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/corner2.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/c2h.jpg",
                     "detail": "high"
                 }
             }
@@ -134,7 +134,7 @@
             {
                 "type": "image_url",
                 "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/slant.jpg",
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/sh.jpg",
                     "detail": "high"
                 }
             }
@@ -146,56 +146,6 @@
             {
                 "type": "text",
                 "text": "The red circle shows a groove slanted about 45° in the Y–Z plane.\n\n**Assumptions**\n1. The groove splits equally between Y and Z.\n2. Each is ~0.5√2 × 250 ≈ 176.78 N/m.\n3. X remains at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 176.78, 0],\n    [0, 0, 176.78]\n  ]\n}\n```"
-            }
-        ]
-    },
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "text",
-                "text": "Please determine the appropriate stiffness matrix for this segment."
-            },
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/ytraverse2.jpg",
-                    "detail": "high"
-                }
-            }
-        ]
-    },
-    {
-        "role": "system",
-        "content": [
-            {
-                "type": "text",
-                "text": "The red circle indicates a groove that primarily follows Y.\n\n**Assumptions**\n1. Stiffness of 250 N/m along Y.\n2. X and Z remain 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
-            }
-        ]
-    },
-    {
-        "role": "user",
-        "content": [
-            {
-                "type": "text",
-                "text": "Could you let me know the stiffness matrix we need here?"
-            },
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": "https://prompt-engineering-experiment.ngrok.io/images/exit.jpg",
-                    "detail": "high"
-                }
-            }
-        ]
-    },
-    {
-        "role": "system",
-        "content": [
-            {
-                "type": "text",
-                "text": "It appears the red circle is near another entrance or exit of the groove, so uniform compliance is appropriate.\n\n**Assumptions**\n1. No single axis is favored.\n2. Stiffness is 100 N/m in x, y, and z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
             }
         ]
     }
