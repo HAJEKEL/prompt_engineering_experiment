@@ -56,7 +56,7 @@ def generate_prompt(system_role_key, image_resolution, ground_truth_category):
 def main():
     logging.basicConfig(level=logging.INFO)
     
-    print("Select System Role (1-5):")
+    print("Select System Role (1-3):")
     system_role_key = input().strip()
     
     print("Select Image Resolution (low/high):")

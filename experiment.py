@@ -30,17 +30,15 @@ def main():
 
     # Named stages
     stages = [
-        "entrance",
-        "ytraverse1",
-        "corner1",
-        "xtraverse",
-        "corner2",
-        "slant",
-        "ytraverse2",
-        "exit"
+        "entrance": "ent",
+        "ytraverse1": "y1t",
+        "corner1": "c1t",
+        "xtraverse": "xt",
+        "corner2": "c2t",
+        "slant": "st"
     ]
 
-    # Roles (e.g. ["role1","role2","role3","role4","role5"])
+    # Roles (e.g. ["role1","role2","role3"])
     system_role_keys = list(roles_config.keys())
 
     # Conversation prior can be 'none', 'home', or 'lab'
