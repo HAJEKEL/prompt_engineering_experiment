@@ -80,7 +80,6 @@ class SpeechProcessor:
         try:
             # 1. Get recent conversation history
             history = self.conversation_history_processor.get_recent_conversation_history()
-
             # 2. Prepare user message
             content = [{"type": "text", "text": transcript}]
             if image_url:
@@ -112,7 +111,6 @@ class SpeechProcessor:
             # 3. Append the user message to the conversation history
             history.append(user_message)
             logging.info("User message added to conversation history.")
-
             # 4. Call the OpenAI API
             client = self.client
             stream = client.chat.completions.create(

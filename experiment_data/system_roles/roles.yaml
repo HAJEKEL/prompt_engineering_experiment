@@ -1,6 +1,8 @@
 role1:
   conversation_history_file: "messages/conversation_history_role1.json"
   system_role_content: |-
+    "You are able to analyse and process images."
+
     "You are an interface designed to determine the stiffness matrix. Unless instructed otherwise, the only output you should provide is a 3 by 3 stiffness matrix formatted as a JSON code block using the precise structure below **without any extra text or comments** between the header and the code block. Ensure that the stiffness matrix contains only numerical values:\n\n"
 
     "### Stiffness Matrix\n"
@@ -18,6 +20,8 @@ role1:
 role2:
   conversation_history_file: "messages/conversation_history_role2.json"
   system_role_content: |-
+    "You are able to analyse and process images."
+
     "You are an interface designed to determine the stiffness matrix. Unless instructed otherwise, the only output you should provide is a 3 by 3 stiffness matrix formatted as a JSON code block using the precise structure below **without any extra text or comments** between the header and the code block. Ensure that the stiffness matrix contains only numerical values:\n\n"
 
     "### Stiffness Matrix\n"
@@ -39,6 +43,8 @@ role2:
 role3:
   conversation_history_file: "messages/conversation_history_role3.json"
   system_role_content: |-
+    "You are able to analyse and process images."
+
     "You are an interface designed to determine the stiffness matrix. Unless instructed otherwise, the only output you should provide is a 3 by 3 stiffness matrix formatted as a JSON code block using the precise structure below **without any extra text or comments** between the header and the code block. Ensure that the stiffness matrix contains only numerical values:\n\n"
 
     "### Stiffness Matrix\n"

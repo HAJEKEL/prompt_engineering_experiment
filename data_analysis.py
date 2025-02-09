@@ -5,13 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import sys
-from statsmodels.formula.api import ols
-import statsmodels.api as sm
 
-# Set seaborn style for better aesthetics
 sns.set(style="whitegrid")
 
-# Define the chronological order of stages
+# Put your stages in order if you'd like to sort them chronologically
 chronological_stages = [
     "entrance",
     "ytraverse1",
@@ -25,238 +22,232 @@ chronological_stages = [
 
 def load_and_process_data(json_file):
     """
-    Load the JSON data and process it into a pandas DataFrame.
-    Filters out failed trials where 'estimated_matrix' or 'metrics' are null.
-    Further filters out trials with incomplete 'metrics' fields.
+    Load the JSON data into a pandas DataFrame.
+    Keep only rows that have an 'estimated_matrix' and a 'metrics' dict with a boolean 'correct'.
+    Create a boolean column 'correct' from that dict.
     """
-    with open(json_file, 'r') as file:
-        data = json.load(file)
-    
-    # Convert list of dicts to DataFrame
-    df = pd.DataFrame(data)
-    
-    # Initial filter: Remove trials where 'estimated_matrix' or 'metrics' are null
-    df_success = df.dropna(subset=['estimated_matrix', 'metrics']).reset_index(drop=True)
-    initial_success_count = len(df_success)
-    print(f"Initial successful trials (after dropping null 'estimated_matrix' or 'metrics'): {initial_success_count}")
-    
-    # Define required metric keys
-    required_metric_keys = ['mae', 'mse', 'frobenius_norm_diff', 'angular_deviation', 'eigenvalue_magnitude_diff']
-    
-    # Function to check if all required keys are present in 'metrics'
-    def has_all_required_metrics(metrics):
-        if not isinstance(metrics, dict):
-            return False
-        return all(key in metrics for key in required_metric_keys)
-    
-    # Further filter: Keep only trials with all required metric keys
-    df_complete_metrics = df_success[df_success['metrics'].apply(has_all_required_metrics)].reset_index(drop=True)
-    complete_metrics_count = len(df_complete_metrics)
-    incomplete_metrics_count = initial_success_count - complete_metrics_count
-    print(f"Trials with complete 'metrics': {complete_metrics_count}")
-    print(f"Trials excluded due to incomplete 'metrics': {incomplete_metrics_count}")
-    
-    if incomplete_metrics_count > 0:
-        print("Note: Some trials were excluded because their 'metrics' fields were incomplete.")
-    
-    df_success = df_complete_metrics.copy()
-    
-    # Normalize the 'metrics' column
-    metrics_df = pd.json_normalize(df_success['metrics'])
-    
-    # Handle 'angular_deviation' and 'eigenvalue_magnitude_diff' which are lists
-    # Convert lists to separate columns
-    for metric_list, prefix in [('angular_deviation', 'angular_deviation_'),
-                                ('eigenvalue_magnitude_diff', 'eigenvalue_diff_')]:
-        if metric_list in metrics_df.columns:
-            # Check if the list has the expected length
-            expected_length = 3  # Based on the snippet you provided
-            actual_lengths = metrics_df[metric_list].apply(lambda x: len(x) if isinstance(x, list) else 0)
-            max_length = actual_lengths.max()
-            if max_length != expected_length:
-                print(f"Warning: '{metric_list}' has varying lengths. Expected {expected_length}, found up to {max_length}.")
-                # Adjust expected_length based on actual data
-                expected_length = max_length
-            # Expand the list into separate columns
-            expanded_df = pd.DataFrame(metrics_df[metric_list].tolist(),
-                                       columns=[f"{prefix}{i+1}" for i in range(expected_length)])
-            metrics_df = pd.concat([metrics_df.drop(metric_list, axis=1), expanded_df], axis=1)
-        else:
-            # If the key is missing, fill with NaNs
-            print(f"Warning: '{metric_list}' key is missing in some 'metrics'. Filling with NaNs.")
-            metrics_df[[f"{prefix}{i+1}" for i in range(3)]] = np.nan
-    
-    # Concatenate the metrics back to the main DataFrame
-    df_success = pd.concat([df_success, metrics_df], axis=1)
-    
-    # Add stage order based on chronological_stages
-    df_success['stage_order'] = df_success['stage'].apply(
-        lambda x: chronological_stages.index(x) if x in chronological_stages else -1
-    )
-    
-    # Optional: Sort by stage_order for chronological plotting
-    df_success = df_success.sort_values(by='stage_order').reset_index(drop=True)
-    
-    return df_success
-
-def perform_statistical_analysis(df, response_variable='mae'):
-    """
-    Perform ANOVA to determine the significance of each factor on the response variable.
-    """
-    # Define the formula for ANOVA
-    formula = f"{response_variable} ~ C(stage) + C(role) + C(use_conv_prior) + C(resolution)"
-    
-    model = ols(formula, data=df).fit()
-    anova_table = sm.stats.anova_lm(model, typ=2)
-    
-    return anova_table
-
-def calculate_variance(df, group_vars, response_variable='mae'):
-    """
-    Calculate the variance of the response variable for each combination of group_vars.
-    """
-    variance_df = df.groupby(group_vars)[response_variable].var().reset_index()
-    variance_df = variance_df.rename(columns={response_variable: 'variance'})
-    return variance_df
-
-def plot_boxplots(df, x_var, y_var, hue_var, title, xlabel, ylabel, filename):
-    """
-    Create and save a boxplot.
-    """
-    plt.figure(figsize=(12, 8))
-    sns.boxplot(x=x_var, y=y_var, hue=hue_var, data=df)
-    plt.title(title, fontsize=16)
-    plt.xlabel(xlabel, fontsize=14)
-    plt.ylabel(ylabel, fontsize=14)
-    plt.legend(title=hue_var, bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.tight_layout()
-    plt.savefig(filename, dpi=300)
-    plt.close()
-
-def plot_variance(variance_df, group_vars, filename):
-    """
-    Create and save a bar plot for variance.
-    """
-    plt.figure(figsize=(14, 8))
-    # Create a combined group label
-    variance_df['group'] = variance_df[group_vars].astype(str).agg(' | '.join, axis=1)
-    sns.barplot(x='group', y='variance', data=variance_df, palette='viridis')
-    plt.title('Variance of MAE by Variable Combinations', fontsize=16)
-    plt.xlabel('Variable Combinations', fontsize=14)
-    plt.ylabel('Variance of MAE', fontsize=14)
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.savefig(filename, dpi=300)
-    plt.close()
-
-def plot_metrics_across_stages(df, stage_order, response_variable='mae', filename='metrics_across_stages.png'):
-    """
-    Plot the response variable across stages in chronological order.
-    """
-    plt.figure(figsize=(14, 8))
-    sns.lineplot(x='stage_order', y=response_variable, hue='role', data=df, marker='o')
-    plt.xticks(ticks=range(len(stage_order)), labels=stage_order, rotation=45)
-    plt.title(f'{response_variable.upper()} Across Stages', fontsize=16)
-    plt.xlabel('Stage', fontsize=14)
-    plt.ylabel(response_variable.upper(), fontsize=14)
-    plt.legend(title='Role', bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.tight_layout()
-    plt.savefig(filename, dpi=300)
-    plt.close()
-
-def main():
-    # Path to the JSON results file
-    json_file = 'experiment_results.json'
-    
-    # Check if the file exists
     if not os.path.exists(json_file):
-        print(f"Error: File '{json_file}' not found. Please ensure the file is in the correct directory.")
+        print(f"Error: File '{json_file}' not found.")
         sys.exit(1)
     
-    # Load and process data
+    with open(json_file, "r") as f:
+        data = json.load(f)
+    
+    df = pd.DataFrame(data)
+    
+    # Drop rows that have no matrix or metrics
+    df = df.dropna(subset=["estimated_matrix", "metrics"]).reset_index(drop=True)
+    
+    # Extract the 'correct' field from the metrics dictionary (if present)
+    def extract_correct(metrics):
+        # metrics is expected to be a dict with a 'correct' key, e.g. {"correct": True}
+        if isinstance(metrics, dict) and "correct" in metrics:
+            return metrics["correct"]
+        return False  # or np.nan, depending on your preference
+    
+    df["correct"] = df["metrics"].apply(extract_correct)
+    
+    # Filter down to rows where we indeed have a True/False in 'correct'
+    df = df.dropna(subset=["correct"]).reset_index(drop=True)
+    
+    # Convert 'correct' to bool, just to be sure
+    df["correct"] = df["correct"].astype(bool)
+    
+    # Optionally add stage_order for sorting
+    def stage_to_order(stage):
+        try:
+            return chronological_stages.index(stage)
+        except ValueError:
+            return -1  # unknown stage goes last
+    
+    df["stage_order"] = df["stage"].apply(stage_to_order)
+    
+    # Sort by stage order if you want chronological plots
+    df = df.sort_values("stage_order").reset_index(drop=True)
+    
+    return df
+
+
+def summarize_accuracy(df):
+    """
+    Prints overall accuracy, plus a breakdown by stage or any other factors.
+    """
+    total_trials = len(df)
+    total_correct = df["correct"].sum()
+    accuracy = total_correct / total_trials if total_trials > 0 else 0.0
+    
+    print(f"Total Trials: {total_trials}")
+    print(f"Total Correct: {total_correct}")
+    print(f"Overall Accuracy: {accuracy:.2f}")
+    
+    # If you want a breakdown by stage:
+    acc_by_stage = df.groupby("stage")["correct"].mean().reset_index()
+    print("\nAccuracy by Stage:")
+    print(acc_by_stage)
+
+
+def plot_accuracy_by_group(df, group_cols, filename="accuracy_by_group.png"):
+    """
+    Creates a bar plot of correctness (fraction correct) grouped by the given columns.
+    For example, group_cols=["stage"], or multiple columns like ["stage","role"].
+    """
+    # Group by specified columns and compute mean correctness
+    group_stats = df.groupby(group_cols)["correct"].mean().reset_index()
+    
+    # For a simpler label on the x-axis, combine columns if you have multiple
+    if len(group_cols) > 1:
+        group_stats["group_label"] = group_stats[group_cols].astype(str).agg(" | ".join, axis=1)
+    else:
+        group_stats["group_label"] = group_stats[group_cols[0]]
+    
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x="group_label", y="correct", data=group_stats, palette="Blues_d")
+    plt.xticks(rotation=45, ha="right")
+    plt.ylim(0, 1)
+    plt.xlabel("Group")
+    plt.ylabel("Fraction Correct")
+    plt.title(f"Accuracy by {', '.join(group_cols)}")
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+    plt.close()
+    
+    print(f"Saved plot to '{filename}'.")
+
+
+def plot_accuracy_across_stages_all_factors(df, filename="accuracy_all_factors.png"):
+    """
+    Creates a single line plot showing accuracy across stages for each combination
+    of role, prior, and resolution. This can get busy if you have many combinations.
+    """
+    # Confirm you have columns named 'role', 'prior', 'resolution' in your dataset.
+    # If your dataset uses different column names, update them here.
+    # We'll assume 'role', 'prior', and 'resolution' exist.
+    
+    # Calculate mean accuracy by stage order + other factors
+    group_cols = ["stage_order", "stage", "role", "prior", "resolution"]
+    grouped = df.groupby(group_cols)["correct"].mean().reset_index()
+    
+    # Create a single label that combines all factors except stage/stage_order
+    # e.g. "roleA | prior=conv | res=HD"
+    grouped["combo_label"] = (
+        grouped["role"].astype(str)
+        + " | prior="
+        + grouped["prior"].astype(str)
+        + " | res="
+        + grouped["resolution"].astype(str)
+    )
+    
+    plt.figure(figsize=(12, 7))
+    sns.lineplot(
+        x="stage_order",
+        y="correct",
+        hue="combo_label",
+        data=grouped,
+        marker="o",
+        legend="full"
+    )
+    
+    # Replace stage_order tick labels with the actual stage names in chronological order
+    unique_stage_orders = sorted(df["stage_order"].unique())
+    stage_labels = [df.loc[df["stage_order"] == so, "stage"].iloc[0] for so in unique_stage_orders]
+    plt.xticks(unique_stage_orders, stage_labels, rotation=45, ha="right")
+    
+    plt.ylim(0, 1)
+    plt.xlabel("Stage")
+    plt.ylabel("Fraction Correct")
+    plt.title("Accuracy Across Stages (Role × Prior × Resolution)")
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+    plt.close()
+    
+    print(f"Saved plot to '{filename}'.")
+
+
+def plot_accuracy_facet_grid(df, row_var, col_var, filename="facet_accuracy.png"):
+    """
+    Creates a FacetGrid of barplots for accuracy, allowing quick comparisons across
+    two categorical variables. For instance:
+      - row_var = "resolution"
+      - col_var = "prior"
+    Then color/hue can be "role" or vice versa. Adjust to your needs.
+    """
+    # We'll group by stage and the chosen factors to get average accuracy
+    group_cols = ["stage", row_var, col_var, "role"]  # 'role' is the hue
+    grouped = df.groupby(group_cols)["correct"].mean().reset_index()
+    
+    # Create the facet grid
+    g = sns.FacetGrid(
+        grouped, 
+        row=row_var, 
+        col=col_var, 
+        margin_titles=True, 
+        sharey=True,
+        height=4, 
+        aspect=1.2
+    )
+    # Within each facet, plot a bar chart with hue="role"
+    g.map_dataframe(
+        sns.barplot, 
+        x="stage", 
+        y="correct", 
+        hue="role", 
+        palette="muted",
+        errorbar=None
+    )
+    
+    # Rotate x labels, set y limit to [0,1], and adjust layout
+    for ax in g.axes.flatten():
+        ax.tick_params(axis='x', rotation=45)
+        ax.set_ylim(0, 1)
+        ax.set_xlabel("Stage")
+        ax.set_ylabel("Accuracy")
+    
+    g.add_legend()
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+    plt.close()
+    
+    print(f"Saved facet grid plot to '{filename}'.")
+
+
+def main():
+    json_file = "experiment_results.json"
+    
+    # 1) Load the data
     df = load_and_process_data(json_file)
     
-    # Display basic information
-    print("\n--- Data Summary ---")
-    print(f"Total successful trials with complete metrics: {len(df)}")
-    print("\nSample Data:")
-    print(df.head())
+    # 2) Print basic accuracy summary
+    print("\n=== Accuracy Summary ===")
+    summarize_accuracy(df)
     
-    # Perform statistical analysis on MAE
-    print("\n--- Performing ANOVA on MAE ---")
-    try:
-        anova_mae = perform_statistical_analysis(df, response_variable='mae')
-        print(anova_mae)
-    except Exception as e:
-        print(f"ANOVA failed: {e}")
-        return
+    # 3) Plot accuracy by stage (bar plot)
+    plot_accuracy_by_group(df, ["stage"], filename="accuracy_by_stage.png")
     
-    # Calculate variance of MAE for each combination of variables
-    group_vars = ['stage', 'role', 'use_conv_prior', 'resolution']
-    variance_df = calculate_variance(df, group_vars, response_variable='mae')
-    print("\n--- Variance of MAE for Each Combination of Variables ---")
-    print(variance_df.head())
+    # 4) Plot accuracy by role (bar plot)
+    plot_accuracy_by_group(df, ["role"], filename="accuracy_by_role.png")
     
-    # Determine if variance is high (threshold can be adjusted)
-    high_variance_threshold = variance_df['variance'].quantile(0.75)  # Top 25% as high variance
-    high_variance_combinations = variance_df[variance_df['variance'] > high_variance_threshold]
-    print("\n--- Combinations with High Variance ---")
-    print(high_variance_combinations)
+    # 5) Plot accuracy by stage & role together (bar plot)
+    plot_accuracy_by_group(df, ["stage", "role"], filename="accuracy_by_stage_role.png")
     
-    # Suggest more trials if high variance exists
-    if not high_variance_combinations.empty:
-        print("\nSome combinations have high variance. Consider conducting more trials for these combinations:")
-        for _, row in high_variance_combinations.iterrows():
-            combo = ' | '.join([f"{var}={row[var]}" for var in group_vars])
-            print(f" - {combo} (Variance: {row['variance']:.4f})")
+    # 6) Single line plot: accuracy across stages for all factors (role, prior, resolution)
+    #    This might be very busy if you have many combinations
+    if all(col in df.columns for col in ["role", "prior", "resolution"]):
+        plot_accuracy_across_stages_all_factors(df, filename="accuracy_all_factors.png")
     else:
-        print("\nVariance is within acceptable limits. No additional trials needed.")
+        print("Skipping multi-factor line plot because 'role', 'prior', or 'resolution' is missing.")
     
-    # Create output directory for plots
-    output_dir = 'plots'
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # Generate boxplots for MAE across different stages
-    plot_boxplots(
-        df,
-        x_var='stage',
-        y_var='mae',
-        hue_var='role',
-        title='MAE Across Stages by Role',
-        xlabel='Stage',
-        ylabel='Mean Absolute Error (MAE)',
-        filename=os.path.join(output_dir, 'mae_boxplot_stages.png')
-    )
-    
-    # Generate boxplots for MAE across different roles
-    plot_boxplots(
-        df,
-        x_var='role',
-        y_var='mae',
-        hue_var='resolution',
-        title='MAE Across Roles by Resolution',
-        xlabel='Role',
-        ylabel='Mean Absolute Error (MAE)',
-        filename=os.path.join(output_dir, 'mae_boxplot_roles.png')
-    )
-    
-    # Generate variance plot
-    # For better visualization, we concatenate group_vars into a single string
-    plot_variance(
-        variance_df,
-        group_vars=['stage', 'role', 'use_conv_prior', 'resolution'],
-        filename=os.path.join(output_dir, 'mae_variance_all_variables.png')
-    )
-    
-    # Plot MAE across stages in chronological order
-    plot_metrics_across_stages(
-        df,
-        stage_order=chronological_stages,
-        response_variable='mae',
-        filename=os.path.join(output_dir, 'mae_across_stages.png')
-    )
-    
-    print(f"\nPlots have been saved in the '{output_dir}' directory.")
+    # 7) Optional: Facet grid to compare accuracy by resolution/prior/role
+    #    Adjust row_var, col_var as needed
+    if all(col in df.columns for col in ["role", "prior", "resolution"]):
+        plot_accuracy_facet_grid(
+            df, 
+            row_var="resolution", 
+            col_var="prior",
+            filename="facet_accuracy_resolution_prior.png"
+        )
+    else:
+        print("Skipping facet grid because 'role', 'prior', or 'resolution' is missing.")
+
 
 if __name__ == "__main__":
     main()

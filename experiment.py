@@ -28,15 +28,18 @@ def main():
     with open(gt_stiffness_file, 'r', encoding='utf-8') as f:
         gt_stiffness_data = yaml.safe_load(f)
 
-    # Named stages
-    stages = [
+    # List of stage names
+    stages = ["entrance", "ytraverse1", "corner1", "xtraverse", "corner2", "slant"]
+
+    # Mapping from stage names to anonymized image filenames
+    stage_image_map = {
         "entrance": "ent",
         "ytraverse1": "y1t",
         "corner1": "c1t",
         "xtraverse": "xt",
         "corner2": "c2t",
         "slant": "st"
-    ]
+    }
 
     # Roles (e.g. ["role1","role2","role3"])
     system_role_keys = list(roles_config.keys())
@@ -99,12 +102,8 @@ def main():
                         )
 
                         # 3) Construct user prompt
-                        user_prompt = (
-                            f"Trial {repetition+1}/{num_repetitions}, "
-                            f"Stage '{stage}': Please describe the image and compute the stiffness matrix."
-                        )
-                        image_url = f"{img_url_base}/{stage}.jpg"
-
+                        user_prompt = ("What is the stiffness matrix for this part of the groove structure?")
+                        image_url = f"{img_url_base}/{stage_image_map[stage]}.jpg"
                         # 4) Get GPT response
                         gpt_response = speech_processor.get_gpt_response_vlm(
                             transcript=user_prompt,
@@ -147,14 +146,14 @@ def main():
                                 "resolution": resolution,
                                 "repetition": repetition + 1,
                                 "estimated_matrix": None,
-                                "metrics": None,
+                                "metrics": {"correct": False},  # Explicitly mark it as incorrect
                                 "conv_history_file": build_conversation_log_filename(
                                     stage, role_key, conversation_prior, resolution, repetition
                                 )
                             }
                             results.append(result_record)
                             save_conversation_history(conversation_history_file,
-                                                     result_record["conv_history_file"])
+                                                    result_record["conv_history_file"])
                             continue
 
                         # 6) Evaluate

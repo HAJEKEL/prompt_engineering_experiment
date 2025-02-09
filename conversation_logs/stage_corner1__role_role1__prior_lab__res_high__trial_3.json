@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/c1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle shows an angled groove in the X\u2013Z plane.\n\n**Assumptions**\n1. Groove splits between X and Z.\n2. Each is ~0.5\u221a2 \u00d7 250 \u2248 176.78 N/m.\n3. Y remains at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [176.78, 0, 0],\n    [0, 100, 0],\n    [0, 0, 176.78]\n  ]\n}\n```"
+      }
+    ]
+  }
+]
