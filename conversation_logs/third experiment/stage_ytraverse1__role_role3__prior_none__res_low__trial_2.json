@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/y1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "I'm unable to identify objects in images. However, if the groove is marked with a red circle, you can describe its orientation for me to provide the correct stiffness matrix."
+      }
+    ]
+  }
+]

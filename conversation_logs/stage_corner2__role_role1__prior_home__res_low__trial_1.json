@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates another transition or corner area, likely requiring uniform stiffness.\n\n**Assumptions**\n1. Stiffness equal in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The groove in the provided image appears to follow a horizontal path, likely along the X-axis, given its broad base. This groove section might be separated via an internal wedge-shaped division, simulating a split in the groove's direction\u2014in this instance, within the X-direction. Consequently, stiffness is high in the X-direction and moderate across the other axes.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 150, 0],\n    [0, 0, 150]\n  ]\n}\n```"
       }
     ]
   }

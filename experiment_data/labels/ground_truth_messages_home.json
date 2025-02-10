@@ -70,7 +70,7 @@
         "content": [
             {
                 "type": "text",
-                "text": "This section shows a right-angled corner in the structure. Before switching to a new groove direction, we want compliance in all axes.\n\n**Assumptions**\n1. Equal stiffness in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+                "text": "This highlighted section represents a corner in the structure. Uniform low stiffness is required in all axes to prevent excessive forces on the walls.\n\n**Assumptions**\n1. Stiffness is equal and low in x, y, and z directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
             }
         ]
     },
@@ -145,7 +145,7 @@
         "content": [
             {
                 "type": "text",
-                "text": "The red circle shows a groove slanted about 45° in the Y–Z plane.\n\n**Assumptions**\n1. The groove splits equally between Y and Z.\n2. Each is ~0.5√2 × 250 ≈ 176.78 N/m.\n3. X remains at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 176.78, 0],\n    [0, 0, 176.78]\n  ]\n}\n```"
+                "text": "The red circle indicates a groove sloping downward at approximately 45° within the Y–Z plane. Specifically, the groove extends along the y-axis while descending in the z-direction, following a negative slope. The groove's 45° downward slope introduces coupled stiffness effects in Y and Z, represented by the off-diagonal terms in the stiffness matrix.\n\n**Assumptions**\n1. The groove follows the equation z = -y.\n2. The x-coordinate remains fixed at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, -75],\n    [0, -75, 175]\n  ]\n}\n```"
             }
         ]
     }

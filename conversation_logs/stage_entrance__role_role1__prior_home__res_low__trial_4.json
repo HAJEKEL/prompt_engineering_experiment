@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image displays the structure's end, primarily in the Z direction.\n\n**Assumptions**\n1. High stiffness needed in the z direction.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The image features a horizontal linear section on a screen, oriented along the X-axis.\n\n**Assumptions**\n1. Stiffness is high along X.\n2. Y and Z directions remain at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

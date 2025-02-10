@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/y1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "I'm unable to analyze the groove structure or determine its orientation. Could you provide a description or more information about the groove's direction?"
+      }
+    ]
+  }
+]

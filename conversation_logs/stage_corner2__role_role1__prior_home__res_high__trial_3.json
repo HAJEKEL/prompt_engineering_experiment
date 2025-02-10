@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a section of groove at a corner.\n\n**Assumptions**\n1. Stiffness is equal in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The image highlights a corner section.\n\n**Assumptions**\n1. Uniform stiffness to accommodate direction change.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to analyze the image or extract details, but based on your description that it involves the stiffness matrix and the highlighted groove, I can provide the stiffness matrix based on the groove orientation.\n\nIf the groove orientation is not described but it seems corner-oriented or non-specific in details, assume low stiffness in all directions:\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```\n\nFor a different result based on more specific instructions or a different part, let me know!"
+        "text": "I'm unable to assist with identifying or analyzing any structures or highlighted elements in this image."
       }
     ]
   }

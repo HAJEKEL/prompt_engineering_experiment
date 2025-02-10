@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle highlights a section of the groove likely oriented along the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "**Assumptions**\n- The groove at the top suggests the end of a path or section.\n- Balanced stiffness distribution needed for stability.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 150]\n  ]\n}\n```"
       }
     ]
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/c1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle highlights a segment involving transitions along the X and Y axes in a corner or turn.\n\n**Assumptions**\n1. Balanced stiffness needed in X and Y.\n2. Z remains low to accommodate potential vertical movement.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

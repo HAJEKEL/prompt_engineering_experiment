@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image shows a right-angled turn in the groove structure. Uniform compliance is desirable to manage transitioning between directions.\n\n**Assumptions**\n1. Equal stiffness in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

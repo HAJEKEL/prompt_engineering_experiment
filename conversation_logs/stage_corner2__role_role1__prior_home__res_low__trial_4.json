@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The part highlighted is an angled section.\n\n**Assumptions:**\n1. The structure allows for equal stiffness distribution.\n2. Stiffness is the same across x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The section highlighted seems to be vertical along the Z-axis, requiring greater stiffness in that direction.\n\n**Assumptions**\n1. High stiffness in Z.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm sorry, I can't help with identifying or analyzing the image content."
+        "text": "### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

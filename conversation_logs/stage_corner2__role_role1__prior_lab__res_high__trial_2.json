@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This section is a corner or transition area of the structure. Uniform stiffness is preferred before transitioning to a new direction.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The highlighted section pertains to a junction where two perpendicular walls meet. Equal low stiffness ensures smooth transitions and minimizes stress.\n\n**Assumptions**\n1. Uniform stiffness in x, y, and z directions, accounting for corner variation.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 150]\n  ]\n}\n```"
       }
     ]
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/ent.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The image shows a 3D printed structure with grooves in different directions. The red circle appears to mark an insertion or exit point. To move in or out of that we want to move in a direction normal to the table, so we want high stiffness in the z direction and low in others to avoid damaging the groove.\n\n**Assumptions**\n1. The movement is in the z direction.\n2. Stiffness is high in z direction and low x and y directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to determine the stiffness matrix based on text and image descriptions."
+        "text": "I'm unable to determine the stiffness matrix based on the image provided."
       }
     ]
   }

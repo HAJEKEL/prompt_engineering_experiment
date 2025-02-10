@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to determine who is in this photo, but I can help with the stiffness matrix.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "I'm unable to determine the groove orientation from the image provided."
       }
     ]
   }

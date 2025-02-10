@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a corner or transition in the groove. \n\n**Assumptions**\n1. Uniform stiffness in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The circled section indicates another corner in the structure. Uniform stiffness in all directions is advisable.\n\n**Assumptions**\n1. Even and low stiffness in X, Y, Z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

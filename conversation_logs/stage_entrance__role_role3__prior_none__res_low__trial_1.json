@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to provide the stiffness matrix without recognizing the groove's orientation in the image. Can you describe the direction of the groove marked with the red circle?"
+        "text": "I'm unable to identify specific features or orientations in images. Please describe the orientation of the highlighted groove so I can determine the stiffness matrix for you."
       }
     ]
   }

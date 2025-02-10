@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This part shows a right-angle corner in the groove structure. At corners, we keep stiffness low to assist in a smooth transition.\n\n**Assumptions**\n1. Equal stiffness in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle highlights a corner in the groove. Uniform low stiffness is necessary to allow smooth transition through the curve.\n\n**Assumptions**\n1. Low stiffness in all directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

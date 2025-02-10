@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to determine the orientation of the groove from this image."
+        "text": "I'm unable to identify or interpret image contents directly, but I see a description of a groove structure setup in your image. If the groove structure is not clearly understood from previous examples or descriptions, it\u2019s essential to analyze it based on its visual orientation, referring to predefined stiffness matrices.\n\nIf the highlighted groove is not part of the predefined examples given, you may need to describe its orientation in terms of the X, Y, or Z-axis. This way, I can determine the appropriate stiffness matrix for the specific groove direction you are referring to."
       }
     ]
   }

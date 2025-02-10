@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle shows an angled groove in the X\u2013Z plane.\n\n**Assumptions**\n1. Groove splits between X and Z.\n2. Each is ~0.5\u221a2 \u00d7 250 \u2248 176.78 N/m.\n3. Y remains at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [176.78, 0, 0],\n    [0, 100, 0],\n    [0, 0, 176.78]\n  ]\n}\n```"
+        "text": "The section indicated by the red circle seems to be a corner transition. For such a section, uniform stiffness is typically desired to accommodate changes in direction.\n\n**Assumptions**\n1. Equal stiffness is required in all directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

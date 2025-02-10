@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to view or analyze specific images or their contents, such as recognizing directions or highlighting specific parts in an image. Please provide a description or more details about the groove's orientation, and I can help determine the stiffness matrix for you."
+        "text": "I'm unable to analyze the image. Could you describe the orientation of the groove, or let me know if it matches any of these predefined scenarios:\n\n- Groove along X-axis\n- Groove along Y-axis\n- Groove diagonal in the YZ-plane\n- Entrance at the left-bottom of the structure\n- Corner\n\nThis will help determine the stiffness matrix."
       }
     ]
   }

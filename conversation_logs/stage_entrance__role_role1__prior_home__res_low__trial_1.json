@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a section that is likely oriented along the Z-axis.\n\n**Assumptions**\n1. High stiffness along Z for depth.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "I'm unable to determine the stiffness matrix for this specific part of the groove given the current image."
       }
     ]
   }

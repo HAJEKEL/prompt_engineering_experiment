@@ -125,6 +125,18 @@
     "conversation_prior": "home",
     "resolution": "low",
     "repetition": 1,
+    "estimated_matrix": null,
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_low__trial_1.json"
+  },
+  {
+    "stage": "entrance",
+    "role": "role1",
+    "conversation_prior": "home",
+    "resolution": "low",
+    "repetition": 2,
     "estimated_matrix": [
       [
         100,
@@ -144,34 +156,6 @@
     ],
     "metrics": {
       "correct": true
-    },
-    "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_low__trial_1.json"
-  },
-  {
-    "stage": "entrance",
-    "role": "role1",
-    "conversation_prior": "home",
-    "resolution": "low",
-    "repetition": 2,
-    "estimated_matrix": [
-      [
-        250,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
-    "metrics": {
-      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_low__trial_2.json"
   },
@@ -211,7 +195,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -223,11 +207,11 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_low__trial_4.json"
   },
@@ -239,23 +223,23 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        200,
         0,
         0
       ],
       [
         0,
-        100,
+        200,
         0
       ],
       [
         0,
         0,
-        250
+        200
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_low__trial_5.json"
   },
@@ -265,25 +249,9 @@
     "conversation_prior": "home",
     "resolution": "high",
     "repetition": 1,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        250
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_high__trial_1.json"
   },
@@ -293,25 +261,9 @@
     "conversation_prior": "home",
     "resolution": "high",
     "repetition": 2,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        250
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_high__trial_2.json"
   },
@@ -379,7 +331,7 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -391,11 +343,11 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_home__res_high__trial_5.json"
   },
@@ -447,11 +399,11 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_lab__res_low__trial_2.json"
   },
@@ -469,17 +421,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_lab__res_low__trial_3.json"
   },
@@ -547,19 +499,19 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        50,
+        100,
         0,
         0
       ],
       [
         0,
-        50,
+        100,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -603,19 +555,19 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        250,
-        0,
-        0
-      ],
-      [
-        0,
         100,
+        0,
         0
       ],
       [
         0,
+        175,
+        75
+      ],
+      [
         0,
-        100
+        75,
+        175
       ]
     ],
     "metrics": {
@@ -631,7 +583,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -643,11 +595,11 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_lab__res_high__trial_4.json"
   },
@@ -659,7 +611,7 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -671,11 +623,11 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role1__prior_lab__res_high__trial_5.json"
   },
@@ -709,23 +661,7 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 3,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -809,7 +745,23 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 5,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        250,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
       "correct": false
     },
@@ -885,17 +837,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_home__res_low__trial_3.json"
   },
@@ -907,7 +859,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -919,11 +871,11 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_home__res_low__trial_4.json"
   },
@@ -941,17 +893,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_home__res_low__trial_5.json"
   },
@@ -1103,13 +1055,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -1137,17 +1089,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_lab__res_low__trial_2.json"
   },
@@ -1221,17 +1173,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_lab__res_low__trial_5.json"
   },
@@ -1249,17 +1201,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_lab__res_high__trial_1.json"
   },
@@ -1299,7 +1251,7 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -1311,11 +1263,11 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_lab__res_high__trial_3.json"
   },
@@ -1327,7 +1279,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -1339,11 +1291,11 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role2__prior_lab__res_high__trial_4.json"
   },
@@ -1417,9 +1369,25 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 4,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        250
+      ]
+    ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role3__prior_none__res_low__trial_4.json"
   },
@@ -1489,25 +1457,9 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 5,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        250
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role3__prior_none__res_high__trial_5.json"
   },
@@ -1581,17 +1533,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role3__prior_home__res_low__trial_3.json"
   },
@@ -1637,17 +1589,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role3__prior_home__res_low__trial_5.json"
   },
@@ -1861,17 +1813,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role3__prior_lab__res_low__trial_3.json"
   },
@@ -1917,17 +1869,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_entrance__role_role3__prior_lab__res_low__trial_5.json"
   },
@@ -2211,7 +2163,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -2233,17 +2185,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_low__trial_2.json"
   },
@@ -2261,17 +2213,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_low__trial_3.json"
   },
@@ -2317,17 +2269,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_low__trial_5.json"
   },
@@ -2345,17 +2297,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_high__trial_1.json"
   },
@@ -2401,17 +2353,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_high__trial_3.json"
   },
@@ -2429,17 +2381,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_high__trial_4.json"
   },
@@ -2457,17 +2409,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_home__res_high__trial_5.json"
   },
@@ -2479,7 +2431,7 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -2491,7 +2443,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -2563,7 +2515,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -2575,7 +2527,7 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -2737,17 +2689,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role1__prior_lab__res_high__trial_5.json"
   },
@@ -2817,7 +2769,23 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 1,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
       "correct": false
     },
@@ -2841,7 +2809,23 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 3,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        250
+      ]
+    ],
     "metrics": {
       "correct": false
     },
@@ -2853,9 +2837,25 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 4,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        250,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_none__res_high__trial_4.json"
   },
@@ -2885,17 +2885,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_home__res_low__trial_1.json"
   },
@@ -2907,13 +2907,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -2923,7 +2923,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_home__res_low__trial_2.json"
   },
@@ -2969,7 +2969,7 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -2979,7 +2979,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_home__res_low__trial_4.json"
   },
@@ -3003,7 +3003,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -3019,13 +3019,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -3035,7 +3035,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_home__res_high__trial_1.json"
   },
@@ -3081,17 +3081,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_home__res_high__trial_3.json"
   },
@@ -3243,13 +3243,13 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -3259,7 +3259,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_lab__res_low__trial_4.json"
   },
@@ -3271,13 +3271,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -3287,7 +3287,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role2__prior_lab__res_low__trial_5.json"
   },
@@ -3485,25 +3485,9 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 5,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        250,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_none__res_low__trial_5.json"
   },
@@ -3561,9 +3545,25 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 5,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        250,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_none__res_high__trial_5.json"
   },
@@ -3665,17 +3665,17 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_home__res_low__trial_4.json"
   },
@@ -3777,17 +3777,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_home__res_high__trial_3.json"
   },
@@ -3805,17 +3805,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_home__res_high__trial_4.json"
   },
@@ -3861,17 +3861,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_lab__res_low__trial_1.json"
   },
@@ -3889,17 +3889,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_lab__res_low__trial_2.json"
   },
@@ -3917,17 +3917,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_lab__res_low__trial_3.json"
   },
@@ -3945,17 +3945,17 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_lab__res_low__trial_4.json"
   },
@@ -3967,13 +3967,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -3983,7 +3983,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_ytraverse1__role_role3__prior_lab__res_low__trial_5.json"
   },
@@ -4255,7 +4255,7 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -4267,7 +4267,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -4283,7 +4283,7 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -4295,7 +4295,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -4317,13 +4317,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -4339,7 +4339,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -4351,7 +4351,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -4373,13 +4373,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -4407,11 +4407,11 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role1__prior_home__res_high__trial_1.json"
   },
@@ -4423,13 +4423,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4451,13 +4451,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4479,19 +4479,19 @@
     "repetition": 4,
     "estimated_matrix": [
       [
+        200,
+        0,
+        0
+      ],
+      [
+        0,
         100,
-        0,
-        0
-      ],
-      [
-        0,
-        250,
         0
       ],
       [
         0,
         0,
-        100
+        200
       ]
     ],
     "metrics": {
@@ -4507,13 +4507,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4535,7 +4535,7 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -4547,7 +4547,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -4563,13 +4563,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4591,13 +4591,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4619,13 +4619,13 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4647,19 +4647,19 @@
     "repetition": 5,
     "estimated_matrix": [
       [
+        175,
+        0,
+        -75
+      ],
+      [
+        0,
         100,
-        0,
         0
       ],
       [
+        -75,
         0,
-        250,
-        0
-      ],
-      [
-        0,
-        0,
-        100
+        175
       ]
     ],
     "metrics": {
@@ -4675,7 +4675,7 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -4691,7 +4691,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role1__prior_lab__res_high__trial_1.json"
   },
@@ -4703,13 +4703,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -4731,7 +4731,7 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        176.78,
+        100,
         0,
         0
       ],
@@ -4743,11 +4743,11 @@
       [
         0,
         0,
-        176.78
+        100
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role1__prior_lab__res_high__trial_3.json"
   },
@@ -4793,7 +4793,7 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -4803,7 +4803,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role1__prior_lab__res_high__trial_5.json"
   },
@@ -4813,7 +4813,23 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 1,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        250,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
       "correct": false
     },
@@ -4885,25 +4901,9 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 2,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role2__prior_none__res_high__trial_2.json"
   },
@@ -4967,13 +4967,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -4995,13 +4995,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5023,13 +5023,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5085,13 +5085,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -5107,13 +5107,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5135,13 +5135,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5169,13 +5169,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -5191,13 +5191,13 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -5219,13 +5219,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -5247,13 +5247,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5275,13 +5275,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5303,13 +5303,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5359,13 +5359,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5393,7 +5393,7 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5403,7 +5403,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role2__prior_lab__res_high__trial_1.json"
   },
@@ -5443,13 +5443,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5471,7 +5471,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -5487,7 +5487,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role2__prior_lab__res_high__trial_4.json"
   },
@@ -5499,13 +5499,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5573,9 +5573,25 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 5,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role3__prior_none__res_low__trial_5.json"
   },
@@ -5621,9 +5637,25 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 4,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role3__prior_none__res_high__trial_4.json"
   },
@@ -5675,13 +5707,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5703,13 +5735,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5731,13 +5763,13 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5759,13 +5791,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5787,13 +5819,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5815,13 +5847,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5843,13 +5875,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5877,13 +5909,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -5899,13 +5931,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5955,13 +5987,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -5983,13 +6015,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -6011,13 +6043,13 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -6039,13 +6071,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -6101,7 +6133,7 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -6111,7 +6143,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role3__prior_lab__res_high__trial_2.json"
   },
@@ -6123,13 +6155,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -6185,7 +6217,7 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -6195,7 +6227,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner1__role_role3__prior_lab__res_high__trial_5.json"
   },
@@ -6339,7 +6371,7 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -6353,34 +6385,6 @@
     "conversation_prior": "home",
     "resolution": "low",
     "repetition": 2,
-    "estimated_matrix": [
-      [
-        250,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
-    "metrics": {
-      "correct": true
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_low__trial_2.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role1",
-    "conversation_prior": "home",
-    "resolution": "low",
-    "repetition": 3,
     "estimated_matrix": [
       [
         100,
@@ -6401,17 +6405,17 @@
     "metrics": {
       "correct": false
     },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_low__trial_3.json"
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_low__trial_2.json"
   },
   {
     "stage": "xtraverse",
     "role": "role1",
     "conversation_prior": "home",
     "resolution": "low",
-    "repetition": 4,
+    "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -6427,6 +6431,34 @@
       ]
     ],
     "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_low__trial_3.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role1",
+    "conversation_prior": "home",
+    "resolution": "low",
+    "repetition": 4,
+    "estimated_matrix": [
+      [
+        175,
+        0,
+        75
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        75,
+        0,
+        175
+      ]
+    ],
+    "metrics": {
       "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_low__trial_4.json"
@@ -6439,13 +6471,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        80,
         0,
         0
       ],
       [
         0,
-        100,
+        80,
         0
       ],
       [
@@ -6523,19 +6555,19 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        150,
         0,
         0
       ],
       [
         0,
-        250,
+        150,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -6579,6 +6611,34 @@
     "repetition": 5,
     "estimated_matrix": [
       [
+        150,
+        0,
+        0
+      ],
+      [
+        0,
+        150,
+        0
+      ],
+      [
+        0,
+        0,
+        150
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_high__trial_5.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role1",
+    "conversation_prior": "lab",
+    "resolution": "low",
+    "repetition": 1,
+    "estimated_matrix": [
+      [
         250,
         0,
         0
@@ -6596,34 +6656,6 @@
     ],
     "metrics": {
       "correct": true
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_home__res_high__trial_5.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role1",
-    "conversation_prior": "lab",
-    "resolution": "low",
-    "repetition": 1,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        250,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
-    "metrics": {
-      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_lab__res_low__trial_1.json"
   },
@@ -6859,23 +6891,23 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        250,
+        200,
         0,
         0
       ],
       [
         0,
-        100,
+        150,
         0
       ],
       [
         0,
         0,
-        100
+        200
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role1__prior_lab__res_high__trial_5.json"
   },
@@ -6885,23 +6917,7 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 1,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        250
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -6913,74 +6929,6 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 2,
-    "estimated_matrix": null,
-    "metrics": {
-      "correct": false
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_low__trial_2.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role2",
-    "conversation_prior": "none",
-    "resolution": "low",
-    "repetition": 3,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        250
-      ]
-    ],
-    "metrics": {
-      "correct": false
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_low__trial_3.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role2",
-    "conversation_prior": "none",
-    "resolution": "low",
-    "repetition": 4,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
-    "metrics": {
-      "correct": false
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_low__trial_4.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role2",
-    "conversation_prior": "none",
-    "resolution": "low",
-    "repetition": 5,
     "estimated_matrix": [
       [
         100,
@@ -6998,6 +6946,42 @@
         100
       ]
     ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_low__trial_2.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "conversation_prior": "none",
+    "resolution": "low",
+    "repetition": 3,
+    "estimated_matrix": null,
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_low__trial_3.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "conversation_prior": "none",
+    "resolution": "low",
+    "repetition": 4,
+    "estimated_matrix": null,
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_low__trial_4.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "conversation_prior": "none",
+    "resolution": "low",
+    "repetition": 5,
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -7023,7 +7007,7 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -7039,7 +7023,63 @@
     "repetition": 2,
     "estimated_matrix": [
       [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
         250,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_high__trial_2.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "conversation_prior": "none",
+    "resolution": "high",
+    "repetition": 3,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        250
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_high__trial_3.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "conversation_prior": "none",
+    "resolution": "high",
+    "repetition": 4,
+    "estimated_matrix": [
+      [
+        100,
         0,
         0
       ],
@@ -7054,30 +7094,6 @@
         100
       ]
     ],
-    "metrics": {
-      "correct": true
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_high__trial_2.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role2",
-    "conversation_prior": "none",
-    "resolution": "high",
-    "repetition": 3,
-    "estimated_matrix": null,
-    "metrics": {
-      "correct": false
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_none__res_high__trial_3.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role2",
-    "conversation_prior": "none",
-    "resolution": "high",
-    "repetition": 4,
-    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -7103,7 +7119,35 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        250,
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        250
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_low__trial_1.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role2",
+    "conversation_prior": "home",
+    "resolution": "low",
+    "repetition": 2,
+    "estimated_matrix": [
+      [
+        100,
         0,
         0
       ],
@@ -7119,18 +7163,8 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_low__trial_1.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role2",
-    "conversation_prior": "home",
-    "resolution": "low",
-    "repetition": 2,
-    "estimated_matrix": null,
-    "metrics": null,
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_low__trial_2.json"
   },
   {
@@ -7141,13 +7175,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -7157,7 +7191,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_low__trial_3.json"
   },
@@ -7175,13 +7209,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -7203,13 +7237,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -7225,13 +7259,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -7241,7 +7275,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_high__trial_1.json"
   },
@@ -7253,13 +7287,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -7269,7 +7303,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_high__trial_2.json"
   },
@@ -7281,13 +7315,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -7297,7 +7331,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_high__trial_3.json"
   },
@@ -7337,13 +7371,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -7353,7 +7387,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role2__prior_home__res_high__trial_5.json"
   },
@@ -7643,9 +7677,21 @@
     "conversation_prior": "none",
     "resolution": "low",
     "repetition": 1,
+    "estimated_matrix": null,
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_none__res_low__trial_1.json"
+  },
+  {
+    "stage": "xtraverse",
+    "role": "role3",
+    "conversation_prior": "none",
+    "resolution": "low",
+    "repetition": 2,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -7657,21 +7703,9 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
-    "metrics": {
-      "correct": true
-    },
-    "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_none__res_low__trial_1.json"
-  },
-  {
-    "stage": "xtraverse",
-    "role": "role3",
-    "conversation_prior": "none",
-    "resolution": "low",
-    "repetition": 2,
-    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -7685,7 +7719,7 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -7697,11 +7731,11 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_none__res_low__trial_3.json"
   },
@@ -7735,7 +7769,23 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 1,
-    "estimated_matrix": null,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
     "metrics": {
       "correct": false
     },
@@ -7775,23 +7825,7 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 3,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -7815,23 +7849,7 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 5,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -7851,13 +7869,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -7879,13 +7897,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -7907,13 +7925,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -7935,13 +7953,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -7985,13 +8003,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -8001,7 +8019,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_home__res_high__trial_1.json"
   },
@@ -8097,7 +8115,7 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -8113,7 +8131,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_home__res_high__trial_5.json"
   },
@@ -8293,13 +8311,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -8309,7 +8327,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_lab__res_high__trial_2.json"
   },
@@ -8321,7 +8339,7 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -8337,7 +8355,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_xtraverse__role_role3__prior_lab__res_high__trial_3.json"
   },
@@ -8525,23 +8543,23 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        100,
+        150,
         0
       ],
       [
         0,
         0,
-        100
+        150
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_home__res_low__trial_1.json"
   },
@@ -8621,11 +8639,11 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_home__res_low__trial_4.json"
   },
@@ -8777,13 +8795,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -8793,7 +8811,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_home__res_high__trial_5.json"
   },
@@ -8811,17 +8829,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_low__trial_1.json"
   },
@@ -8839,17 +8857,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_low__trial_2.json"
   },
@@ -8867,17 +8885,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_low__trial_3.json"
   },
@@ -8895,17 +8913,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_low__trial_4.json"
   },
@@ -8923,17 +8941,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_low__trial_5.json"
   },
@@ -8951,17 +8969,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_high__trial_1.json"
   },
@@ -8973,23 +8991,23 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        150,
         0,
         0
       ],
       [
         0,
-        100,
+        150,
         0
       ],
       [
         0,
         0,
-        100
+        150
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_high__trial_2.json"
   },
@@ -9007,17 +9025,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_high__trial_3.json"
   },
@@ -9035,17 +9053,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_high__trial_4.json"
   },
@@ -9063,17 +9081,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role1__prior_lab__res_high__trial_5.json"
   },
@@ -9171,25 +9189,9 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 2,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_none__res_high__trial_2.json"
   },
@@ -9291,13 +9293,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -9313,7 +9315,7 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -9329,7 +9331,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_home__res_low__trial_2.json"
   },
@@ -9341,13 +9343,13 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -9369,7 +9371,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -9385,7 +9387,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_home__res_low__trial_4.json"
   },
@@ -9397,13 +9399,13 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -9425,7 +9427,7 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -9441,7 +9443,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_home__res_high__trial_1.json"
   },
@@ -9739,17 +9741,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_lab__res_high__trial_2.json"
   },
@@ -9767,17 +9769,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_lab__res_high__trial_3.json"
   },
@@ -9795,17 +9797,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_lab__res_high__trial_4.json"
   },
@@ -9823,17 +9825,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role2__prior_lab__res_high__trial_5.json"
   },
@@ -10073,13 +10075,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -10107,7 +10109,7 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -10117,7 +10119,7 @@
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_home__res_low__trial_3.json"
   },
@@ -10129,7 +10131,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -10141,7 +10143,7 @@
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -10157,7 +10159,7 @@
     "repetition": 5,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
@@ -10169,7 +10171,7 @@
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -10269,7 +10271,7 @@
     "repetition": 4,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
@@ -10285,7 +10287,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_home__res_high__trial_4.json"
   },
@@ -10303,7 +10305,7 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -10313,7 +10315,7 @@
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_home__res_high__trial_5.json"
   },
@@ -10331,17 +10333,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_low__trial_1.json"
   },
@@ -10359,17 +10361,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_low__trial_2.json"
   },
@@ -10415,17 +10417,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_low__trial_4.json"
   },
@@ -10443,17 +10445,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        75
       ],
       [
         0,
-        0,
-        100
+        75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_low__trial_5.json"
   },
@@ -10471,17 +10473,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_high__trial_1.json"
   },
@@ -10499,17 +10501,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_high__trial_2.json"
   },
@@ -10527,17 +10529,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        75
       ],
       [
         0,
-        0,
-        100
+        75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_high__trial_3.json"
   },
@@ -10583,17 +10585,17 @@
       ],
       [
         0,
-        100,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": true
+      "correct": false
     },
     "conv_history_file": "conversation_logs/stage_corner2__role_role3__prior_lab__res_high__trial_5.json"
   },
@@ -10781,9 +10783,9 @@
     "repetition": 3,
     "estimated_matrix": [
       [
-        100,
+        175,
         0,
-        0
+        75
       ],
       [
         0,
@@ -10791,9 +10793,9 @@
         0
       ],
       [
+        75,
         0,
-        0,
-        250
+        175
       ]
     ],
     "metrics": {
@@ -11067,13 +11069,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11095,17 +11097,17 @@
       ],
       [
         0,
-        250,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_slant__role_role1__prior_lab__res_low__trial_4.json"
   },
@@ -11123,17 +11125,17 @@
       ],
       [
         0,
-        250,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_slant__role_role1__prior_lab__res_low__trial_5.json"
   },
@@ -11207,13 +11209,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -11235,13 +11237,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11263,17 +11265,17 @@
       ],
       [
         0,
-        250,
-        0
+        175,
+        -75
       ],
       [
         0,
-        0,
-        100
+        -75,
+        175
       ]
     ],
     "metrics": {
-      "correct": false
+      "correct": true
     },
     "conv_history_file": "conversation_logs/stage_slant__role_role1__prior_lab__res_high__trial_5.json"
   },
@@ -11355,23 +11357,7 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 2,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        100
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -11395,23 +11381,7 @@
     "conversation_prior": "none",
     "resolution": "high",
     "repetition": 4,
-    "estimated_matrix": [
-      [
-        100,
-        0,
-        0
-      ],
-      [
-        0,
-        100,
-        0
-      ],
-      [
-        0,
-        0,
-        250
-      ]
-    ],
+    "estimated_matrix": null,
     "metrics": {
       "correct": false
     },
@@ -11471,13 +11441,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11499,13 +11469,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11527,13 +11497,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11555,13 +11525,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11611,13 +11581,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11667,13 +11637,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11717,13 +11687,13 @@
     "repetition": 1,
     "estimated_matrix": [
       [
-        250,
+        100,
         0,
         0
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
@@ -11779,13 +11749,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -11807,13 +11777,13 @@
       ],
       [
         0,
-        100,
+        250,
         0
       ],
       [
         0,
         0,
-        250
+        100
       ]
     ],
     "metrics": {
@@ -11891,13 +11861,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -12145,13 +12115,13 @@
     "repetition": 2,
     "estimated_matrix": [
       [
-        100,
+        250,
         0,
         0
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
@@ -12179,13 +12149,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {
@@ -12235,13 +12205,13 @@
       ],
       [
         0,
-        175,
-        75
+        100,
+        0
       ],
       [
         0,
-        75,
-        175
+        0,
+        250
       ]
     ],
     "metrics": {
@@ -12319,13 +12289,13 @@
       ],
       [
         0,
-        250,
+        100,
         0
       ],
       [
         0,
         0,
-        100
+        250
       ]
     ],
     "metrics": {

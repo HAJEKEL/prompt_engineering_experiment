@@ -4,8 +4,8 @@ import json
 import yaml
 import logging
 import numpy as np
-from pathlib import Path
 import time
+from pathlib import Path
 
 from functions.conversation_history_processor import ConversationHistoryProcessor
 from functions.speech_processor import SpeechProcessor
@@ -53,14 +53,17 @@ def main():
     results = []
 
     # Number of repeated trials per combination
-    num_repetitions = 5  # typical compromise in studies
+    num_repetitions = 5
+
+    # -- NEW: Retry parameters --
+    MAX_RETRIES = 3
+    RETRY_DELAY = 2  # seconds (base delay, then exponential backoff)
 
     for stage in stages:
         if stage not in gt_stiffness_data:
             logging.warning(f"No GT data found for stage='{stage}', skipping.")
             continue
         gt_matrix = gt_stiffness_data[stage]["stiffness_matrix"]
-
         img_url_base = "https://prompt-engineering-experiment.ngrok.io/images"
 
         for role_key in system_role_keys:
@@ -102,13 +105,29 @@ def main():
                         )
 
                         # 3) Construct user prompt
-                        user_prompt = ("What is the stiffness matrix for this part of the groove structure?")
+                        user_prompt = "What is the stiffness matrix for this part of the groove structure?"
                         image_url = f"{img_url_base}/{stage_image_map[stage]}.jpg"
-                        # 4) Get GPT response
-                        gpt_response = speech_processor.get_gpt_response_vlm(
-                            transcript=user_prompt,
-                            image_url=image_url
-                        )
+
+                        # 4) Get GPT response with retries
+                        gpt_response = None
+                        for attempt in range(1, MAX_RETRIES + 1):
+                            try:
+                                gpt_response = speech_processor.get_gpt_response_vlm(
+                                    transcript=user_prompt,
+                                    image_url=image_url
+                                )
+                                # If we got a non-empty response, break out of retry loop
+                                if gpt_response:
+                                    break
+                            except Exception as e:
+                                logging.warning(
+                                    f"[Attempt {attempt}/{MAX_RETRIES}] Error calling get_gpt_response_vlm: {e}"
+                                )
+
+                            if attempt < MAX_RETRIES:
+                                wait_time = RETRY_DELAY * (2 ** (attempt - 1))
+                                logging.info(f"Retrying in {wait_time} seconds...")
+                                time.sleep(wait_time)
 
                         if not gpt_response:
                             logging.warning(
@@ -128,8 +147,10 @@ def main():
                                 )
                             }
                             results.append(result_record)
-                            save_conversation_history(conversation_history_file,
-                                                     result_record["conv_history_file"])
+                            save_conversation_history(
+                                conversation_history_file,
+                                result_record["conv_history_file"]
+                            )
                             continue
 
                         # 5) Extract the matrix
@@ -146,19 +167,23 @@ def main():
                                 "resolution": resolution,
                                 "repetition": repetition + 1,
                                 "estimated_matrix": None,
-                                "metrics": {"correct": False},  # Explicitly mark it as incorrect
+                                "metrics": {"correct": False},
                                 "conv_history_file": build_conversation_log_filename(
                                     stage, role_key, conversation_prior, resolution, repetition
                                 )
                             }
                             results.append(result_record)
-                            save_conversation_history(conversation_history_file,
-                                                    result_record["conv_history_file"])
+                            save_conversation_history(
+                                conversation_history_file,
+                                result_record["conv_history_file"]
+                            )
                             continue
 
                         # 6) Evaluate
                         metrics = evaluator.evaluate_stiffness_matrix(gt_matrix, estimated_matrix)
-                        logging.info(f"Metrics (stage='{stage}', role='{role_key}', trial={repetition+1}): {metrics}")
+                        logging.info(
+                            f"Metrics (stage='{stage}', role='{role_key}', trial={repetition+1}): {metrics}"
+                        )
 
                         # 7) Save record
                         result_record = {
@@ -176,7 +201,10 @@ def main():
                         results.append(result_record)
 
                         # 8) Save conversation logs
-                        save_conversation_history(conversation_history_file, result_record["conv_history_file"])
+                        save_conversation_history(
+                            conversation_history_file,
+                            result_record["conv_history_file"]
+                        )
 
     # 9) Save aggregated results
     results_file = "experiment_results.json"
@@ -198,7 +226,6 @@ def is_numeric_matrix(stiffness_matrix):
             logging.warning(f"Matrix shape is {arr.shape}, not (3,3).")
             return False
     except (ValueError, TypeError):
-        # Means there's a non-numeric item or some placeholder text
         logging.warning("Matrix contains non-numeric elements.")
         return False
 

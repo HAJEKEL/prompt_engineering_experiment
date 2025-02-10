@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates an insertion or exit point, with the movement primarily in the Z direction.\n\n**Assumptions**\n1. High stiffness in the Z direction.\n2. X and Y directions at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The groove highlighted is located at the entrance, where movement should be primarily along the Z-axis.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

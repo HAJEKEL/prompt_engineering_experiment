@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This section appears to be a right-angled corner. Uniform stiffness is ideal prior to alignment change.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle indicates a corner in the groove structure. Uniform low stiffness is needed in all axes to prevent excessive forces.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle marks a vertical groove, suggesting motion predominantly in the Z direction.\n\n**Assumptions**\n1. High stiffness in Z.\n2. X and Y remain lower at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "This section of the groove appears to be primarily horizontal, extending along the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Lower stiffness in Y and Z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

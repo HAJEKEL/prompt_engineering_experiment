@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "For this vertical groove section, high stiffness would align with the Z-axis.\n\n**Assumptions**\n1. High stiffness along Z.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The circled section depicts a vertical groove oriented along the Z-axis. The image was likely captured by a camera attached to a robotic arm or another type of manipulator focusing on the Z-axis alignment.\n\n**Assumptions**\n1. High stiffness along the Z-axis.\n2. X and Y stiffness maintain lower values.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

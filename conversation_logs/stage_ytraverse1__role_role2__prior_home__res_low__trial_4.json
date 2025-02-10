@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a groove primarily oriented along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The image indicates a vertical groove oriented along the Z-axis, ideal for tasks requiring forces in that direction. Therefore, this image represents a groove where the insertion/extraction occurs along the Z-axis, necessitating uniform stiffness across the X, Y, and Z axes to allow free movement while maintaining consistent force distribution. By establishing uniform low stiffness of 100 N/m in these directions, smooth movement is prioritized while ensuring balanced force application during operation. Based on the image and considerations, the uniform distribution of forces aligns with the groove's design, facilitating efficient and controlled interaction.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

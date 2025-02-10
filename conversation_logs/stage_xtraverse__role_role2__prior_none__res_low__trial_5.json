@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to identify people or specific features of images. However, the red circle highlights the groove in the top part of the structure. Based on its orientation, here is the stiffness matrix:\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "I'm unable to determine the stiffness matrix from the image, but if you describe the groove's orientation or show any other indicators, I'll help you generate the stiffness matrix."
       }
     ]
   }

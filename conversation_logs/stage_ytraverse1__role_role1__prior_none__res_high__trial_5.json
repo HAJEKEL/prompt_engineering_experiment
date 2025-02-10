@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to provide that information based on the image alone."
+        "text": "I'm unable to determine the stiffness matrix from this image. To calculate a stiffness matrix, detailed information about the material properties and geometry is needed."
       }
     ]
   }

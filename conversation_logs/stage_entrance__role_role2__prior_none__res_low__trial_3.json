@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to provide specific subtitles for the image, but based on the description of the task, I'll provide a suitable stiffness matrix.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "I'm unable to determine the stiffness matrix without recognizing image details. Let me know if there's another way I can assist you!"
       }
     ]
   }

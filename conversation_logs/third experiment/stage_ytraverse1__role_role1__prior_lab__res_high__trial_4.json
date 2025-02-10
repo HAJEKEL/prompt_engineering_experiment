@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/y1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The groove marked in red indicates downward movement in the Z-axis while extending along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Z.\n2. Moderate stiffness in Y.\n3. Minimal stiffness in X.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [50, 0, 0],\n    [0, 150, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

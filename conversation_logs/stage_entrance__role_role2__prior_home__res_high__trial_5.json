@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle marks the entrance located at the bottom of the structure. \n\n**Assumptions**\n1. Diagonal stiffness, high in Z.\n2. Low in X and Y.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The highlighted section is at the entrance of the groove structure where the Z-axis is critical.\n\n**Assumptions**\n1. High stiffness in Z-axis.\n2. Other directions have low stiffness.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/c2t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle indicates a groove oriented at approximately 45\u00b0 upward within the Y\u2013Z plane.\n\n**Assumptions**\n1. The groove follows the equation z = y.\n2. The x-coordinate remains fixed at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, 75],\n    [0, 75, 175]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

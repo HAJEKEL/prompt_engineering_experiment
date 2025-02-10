@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to provide any information about people or objects shown on screens. Let me know if there's something else I can assist with!"
+        "text": "I'm unable to determine the stiffness matrix without knowing the groove orientation from the image, as I can't see details like the red circle. However, if you describe the groove's orientation (e.g., along X, Y, or Z axis, or if it's in a corner), I can compute the stiffness matrix for you."
       }
     ]
   }

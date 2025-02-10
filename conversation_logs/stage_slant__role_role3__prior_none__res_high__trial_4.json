@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to analyze specific directions or markings in the image. However, if the groove's details are similar to the descriptions provided (such as running left-to-right, bottom-to-top, diagonal, etc.), you can choose the corresponding stiffness matrix from the predefined options."
+        "text": "I'm unable to determine the orientation of the groove or its specific location within the structure from the image. Could you describe the orientation or location (e.g., along X-axis, Y-axis, diagonal, entrance, or corner) to help determine the stiffness matrix?"
       }
     ]
   }

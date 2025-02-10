@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a vertical section of the groove aligned primarily along the Z-axis.\n\n**Assumptions**\n1. High stiffness along Z.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The red circle highlights the base of the groove structure. Here, the aim is to support load or force applied in the Z-direction while maintaining stability.\n\n**Assumptions**\n1. High stiffness in Z.\n2. X and Y directions are lower.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [80, 0, 0],\n    [0, 80, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

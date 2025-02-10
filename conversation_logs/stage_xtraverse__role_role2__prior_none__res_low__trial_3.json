@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "I'm unable to determine the exact stiffness matrix without specific annotations on the groove's orientation or entrance location. Could you provide more information, such as a description of the groove's orientation or the marked entrance location?"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle marks another corner of the groove structure. For a corner, we typically need equal compliance to facilitate smooth transitions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The highlighted section appears to have a groove running along the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

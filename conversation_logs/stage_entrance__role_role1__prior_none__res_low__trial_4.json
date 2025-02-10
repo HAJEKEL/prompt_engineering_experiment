@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to analyze parts of images directly or calculate values from them. To determine a stiffness matrix, you typically need detailed information about the material properties and geometry of a structure. If any specific data is available for the groove structure, please provide it, and I can assist further."
+        "text": "I'm unable to determine a stiffness matrix from the image."
       }
     ]
   }

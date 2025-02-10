@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to process this image to determine the stiffness matrix."
+        "text": "I'm unable to determine the stiffness matrix for the groove structure based on this image."
       }
     ]
   }

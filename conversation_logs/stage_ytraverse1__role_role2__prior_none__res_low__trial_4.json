@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to determine the groove's orientation and therefore can't compute the stiffness matrix from the image."
+        "text": "I'm unable to determine the stiffness matrix without recognizing the exact structure of the groove in the image."
       }
     ]
   }

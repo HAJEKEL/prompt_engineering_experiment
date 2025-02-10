@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image focuses on a vertical section of the groove, likely aligned with the Z-axis.\n\n**Assumptions**\n1. High stiffness in Z.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The red circle marks the central base area of the structure. This part supports the entire structure, requiring high uniform stiffness in all directions to bear loads effectively.\n\n**Assumptions**\n1. Stiffness is high and equal in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [200, 0, 0],\n    [0, 200, 0],\n    [0, 0, 200]\n  ]\n}\n```"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This section has a clear X-axis orientation.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The highlighted section represents a transition in the structure, where the groove is angled similarly to the connection between sections.\n\n**Assumptions**\n1. High stiffness primarily along X and Z.\n2. Balance with some Y stiffness for the transition.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [200, 0, 0],\n    [0, 150, 0],\n    [0, 0, 200]\n  ]\n}\n```"
       }
     ]
   }

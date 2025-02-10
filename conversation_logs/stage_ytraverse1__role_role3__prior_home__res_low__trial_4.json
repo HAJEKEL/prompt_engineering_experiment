@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates an entrance located at the left-bottom of the structure.\n\n**Assumptions**\n1. High stiffness along the Z-axis.\n2. X and Y have low stiffness.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The red circle highlights a groove following the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

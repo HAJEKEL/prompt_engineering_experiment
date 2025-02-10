@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image shows a section of the structure oriented along the Z-axis.\n\n**Assumptions**\n1. High stiffness along Z.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The photo displays an entry or exit at the bottom of the groove.\n\n**Assumptions**\n1. Movement occurs along the Z-axis.\n2. High stiffness along Z, low along X and Y.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

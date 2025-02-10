@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/ent.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The circled area shows a groove oriented in the Z-direction.\n\n**Assumptions**\n1. High stiffness in the Z axis.\n2. Low stiffness in X and Y to minimize resistance.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [50, 0, 0],\n    [0, 50, 0],\n    [0, 0, 200]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

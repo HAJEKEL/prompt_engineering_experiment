@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This section shows a horizontal groove aligned along the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle highlights a groove oriented along the Y-axis.\n\n**Assumptions**\n1. High stiffness aligns with Y.\n2. X and Z are lower, at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

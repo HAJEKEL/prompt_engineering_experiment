@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image shows a groove corner, likely allowing equal stiffness in all directions.\n\n**Assumptions**\n1. Stiffness equal in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The highlighted area is a corner in the structure, requiring uniformly low stiffness to facilitate smooth transitions.\n\n**Assumptions**\n1. Equal stiffness in all directions at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

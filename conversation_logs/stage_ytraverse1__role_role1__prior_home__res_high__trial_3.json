@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a groove section primarily aligned along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The highlighted groove section runs primarily downward in the Z direction, requiring higher stiffness along Z to manage forces and potential deformation in this axis.\n\n**Assumptions**\n1. High stiffness aligned with Z.\n2. X and Y are moderate.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

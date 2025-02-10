@@ -1,0 +1,43 @@
+ 
+=== Accuracy Summary ===
+Total Trials: 385
+Total Correct: 159
+Overall Accuracy: 0.41
+
+Accuracy by Stage:
+        stage   correct
+0     corner1  0.203125
+1     corner2  0.434783
+2    entrance  0.728814
+3       slant  0.050000
+4   xtraverse  0.579710
+5  ytraverse1  0.468750
+Saved plot to 'accuracy_by_stage.png'.
+Saved plot to 'accuracy_by_role.png'.
+Saved plot to 'accuracy_by_stage_role.png'.
+Saved nested bar plot to 'accuracy_by_stage_role_prior_resolution.png'.
+/workspaces/prompt_engineering_experiment/data_analysis_new.py:197: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(
+Saved overall (role, prior, resolution) plot to 'accuracy_by_role_prior_resolution_overall.png'.
+
+=== Ranking of (role, prior, resolution) by Overall Accuracy ===
+     role prior resolution  accuracy
+0   role3  none       high  0.777778
+1   role1   lab       high  0.566667
+2   role3   lab       high  0.566667
+3   role2  home       high  0.533333
+4   role3  home       high  0.533333
+5   role3  none        low  0.500000
+6   role2   lab       high  0.500000
+7   role2   lab        low  0.500000
+8   role2  none       high  0.461538
+9   role1  home       high  0.428571
+10  role3   lab        low  0.400000
+11  role1   lab        low  0.366667
+12  role3  home        low  0.166667
+13  role1  home        low  0.137931
+14  role2  home        low  0.133333
+15  role2  none        low  0.000000

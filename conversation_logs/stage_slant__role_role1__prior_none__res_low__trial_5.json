@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to identify people or objects in images. Please provide additional context or details about the groove structure to assist in determining the stiffness matrix."
+        "text": "I'm unable to compute the stiffness matrix from this image."
       }
     ]
   }

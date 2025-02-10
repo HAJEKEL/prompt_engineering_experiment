@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image shows a groove section primarily aligned with the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle marks a section at the base of the structure, where movement is likely intended to be vertical (in the Z-direction).\n\n**Assumptions**\n1. High stiffness in Z to stabilize against vertical forces.\n2. X and Y stiffness remain at 100 N/m to allow lateral movement.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "In this section, the groove likely requires high stiffness along the Y-axis.\n\n**Assumptions**\n1. High stiffness in Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle indicates a groove that slopes at approximately 45\u00b0 within the X\u2013Z plane, ascending upward along the z-axis and moving in the positive x-direction.\n\n**Assumptions**\n1. The groove follows the equation z = x.\n2. The y-coordinate remains fixed at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [175, 0, -75],\n    [0, 100, 0],\n    [-75, 0, 175]\n  ]\n}\n```"
       }
     ]
   }

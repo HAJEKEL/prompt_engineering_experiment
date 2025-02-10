@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle marks an area aligned along the Z-axis, likely needing stiffness in that direction.\n\n**Assumptions**\n1. High stiffness along Z.\n2. X and Y remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The image shows a section marked at the bottom of the groove structure, where it meets a platform.\n\n**Assumptions**\n1. The movement is primarily vertical (along Z) for alignment with the surface.\n2. High stiffness is needed in the Z direction.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

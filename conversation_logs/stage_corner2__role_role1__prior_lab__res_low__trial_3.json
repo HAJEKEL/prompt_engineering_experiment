@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This section also appears to be a corner or transition point. We want uniform stiffness before re-aligning with a new direction.\n\n**Assumptions**\n1. Stiffness equal in x, y, z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle shows a groove inclined at approximately 45\u00b0 within the Y\u2013Z plane, with the groove extending along the y-axis and descending in the z-direction.\n\n**Assumptions**\n1. Groove follows the equation z = -y.\n2. X-coordinate remains fixed at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, -75],\n    [0, -75, 175]\n  ]\n}\n```"
       }
     ]
   }

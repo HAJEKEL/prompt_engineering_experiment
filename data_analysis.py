@@ -25,6 +25,7 @@ def load_and_process_data(json_file):
     Load the JSON data into a pandas DataFrame.
     Keep only rows that have an 'estimated_matrix' and a 'metrics' dict with a boolean 'correct'.
     Create a boolean column 'correct' from that dict.
+    Rename 'conversation_prior' -> 'prior' so we can do multi-factor plots.
     """
     if not os.path.exists(json_file):
         print(f"Error: File '{json_file}' not found.")
@@ -35,25 +36,28 @@ def load_and_process_data(json_file):
     
     df = pd.DataFrame(data)
     
+    # Rename conversation_prior to prior so we can standardize the naming
+    if "conversation_prior" in df.columns:
+        df.rename(columns={"conversation_prior": "prior"}, inplace=True)
+
     # Drop rows that have no matrix or metrics
     df = df.dropna(subset=["estimated_matrix", "metrics"]).reset_index(drop=True)
     
     # Extract the 'correct' field from the metrics dictionary (if present)
     def extract_correct(metrics):
-        # metrics is expected to be a dict with a 'correct' key, e.g. {"correct": True}
         if isinstance(metrics, dict) and "correct" in metrics:
             return metrics["correct"]
         return False  # or np.nan, depending on your preference
     
     df["correct"] = df["metrics"].apply(extract_correct)
     
-    # Filter down to rows where we indeed have a True/False in 'correct'
+    # Filter down to rows where 'correct' is True/False
     df = df.dropna(subset=["correct"]).reset_index(drop=True)
     
     # Convert 'correct' to bool, just to be sure
     df["correct"] = df["correct"].astype(bool)
     
-    # Optionally add stage_order for sorting
+    # Add stage_order for sorting
     def stage_to_order(stage):
         try:
             return chronological_stages.index(stage)
@@ -62,15 +66,14 @@ def load_and_process_data(json_file):
     
     df["stage_order"] = df["stage"].apply(stage_to_order)
     
-    # Sort by stage order if you want chronological plots
+    # Sort by stage order for chronological plots
     df = df.sort_values("stage_order").reset_index(drop=True)
     
     return df
 
-
 def summarize_accuracy(df):
     """
-    Prints overall accuracy, plus a breakdown by stage or any other factors.
+    Prints overall accuracy, plus a breakdown by stage.
     """
     total_trials = len(df)
     total_correct = df["correct"].sum()
@@ -80,28 +83,29 @@ def summarize_accuracy(df):
     print(f"Total Correct: {total_correct}")
     print(f"Overall Accuracy: {accuracy:.2f}")
     
-    # If you want a breakdown by stage:
     acc_by_stage = df.groupby("stage")["correct"].mean().reset_index()
     print("\nAccuracy by Stage:")
     print(acc_by_stage)
 
-
 def plot_accuracy_by_group(df, group_cols, filename="accuracy_by_group.png"):
     """
-    Creates a bar plot of correctness (fraction correct) grouped by the given columns.
-    For example, group_cols=["stage"], or multiple columns like ["stage","role"].
+    Creates a single-level bar plot of correctness (fraction correct) grouped by columns in group_cols.
     """
-    # Group by specified columns and compute mean correctness
     group_stats = df.groupby(group_cols)["correct"].mean().reset_index()
     
-    # For a simpler label on the x-axis, combine columns if you have multiple
+    # Combine columns for x-axis labels if you have more than one grouping
     if len(group_cols) > 1:
         group_stats["group_label"] = group_stats[group_cols].astype(str).agg(" | ".join, axis=1)
     else:
         group_stats["group_label"] = group_stats[group_cols[0]]
     
     plt.figure(figsize=(10, 6))
-    sns.barplot(x="group_label", y="correct", data=group_stats, palette="Blues_d")
+    sns.barplot(
+        x="group_label", 
+        y="correct", 
+        data=group_stats, 
+        color="C0"
+    )
     plt.xticks(rotation=45, ha="right")
     plt.ylim(0, 1)
     plt.xlabel("Group")
@@ -113,102 +117,98 @@ def plot_accuracy_by_group(df, group_cols, filename="accuracy_by_group.png"):
     
     print(f"Saved plot to '{filename}'.")
 
-
-def plot_accuracy_across_stages_all_factors(df, filename="accuracy_all_factors.png"):
+def plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resolution.png"):
     """
-    Creates a single line plot showing accuracy across stages for each combination
-    of role, prior, and resolution. This can get busy if you have many combinations.
+    Creates a grouped bar plot with:
+    - stage on the x-axis
+    - each combination of (role, prior, resolution) as the hue
+    
+    This way, at each stage, you see multiple bars split by role -> prior -> resolution.
     """
-    # Confirm you have columns named 'role', 'prior', 'resolution' in your dataset.
-    # If your dataset uses different column names, update them here.
-    # We'll assume 'role', 'prior', and 'resolution' exist.
+    required_cols = {"stage", "role", "prior", "resolution"}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        print(f"Skipping nested bar plot because these columns are missing: {missing}")
+        return
     
-    # Calculate mean accuracy by stage order + other factors
-    group_cols = ["stage_order", "stage", "role", "prior", "resolution"]
-    grouped = df.groupby(group_cols)["correct"].mean().reset_index()
+    # Group to get mean accuracy by stage, role, prior, resolution
+    grouped = (
+        df.groupby(["stage", "role", "prior", "resolution"])["correct"]
+        .mean()
+        .reset_index(name="accuracy")
+    )
     
-    # Create a single label that combines all factors except stage/stage_order
-    # e.g. "roleA | prior=conv | res=HD"
+    # Create a single label for the hue (role|prior|resolution)
     grouped["combo_label"] = (
         grouped["role"].astype(str)
-        + " | prior="
+        + " | "
         + grouped["prior"].astype(str)
-        + " | res="
+        + " | "
         + grouped["resolution"].astype(str)
     )
     
-    plt.figure(figsize=(12, 7))
-    sns.lineplot(
-        x="stage_order",
-        y="correct",
-        hue="combo_label",
+    plt.figure(figsize=(12, 8))
+    sns.barplot(
+        x="stage", 
+        y="accuracy", 
+        hue="combo_label", 
         data=grouped,
-        marker="o",
-        legend="full"
+        palette="tab20"
     )
-    
-    # Replace stage_order tick labels with the actual stage names in chronological order
-    unique_stage_orders = sorted(df["stage_order"].unique())
-    stage_labels = [df.loc[df["stage_order"] == so, "stage"].iloc[0] for so in unique_stage_orders]
-    plt.xticks(unique_stage_orders, stage_labels, rotation=45, ha="right")
-    
     plt.ylim(0, 1)
+    plt.xticks(rotation=45, ha="right")
     plt.xlabel("Stage")
     plt.ylabel("Fraction Correct")
-    plt.title("Accuracy Across Stages (Role × Prior × Resolution)")
+    plt.title("Accuracy by Stage, Role, Prior, Resolution")
+    plt.legend(title="Role | Prior | Resolution", bbox_to_anchor=(1.05, 1), loc='upper left')
     plt.tight_layout()
     plt.savefig(filename, dpi=300)
     plt.close()
-    
-    print(f"Saved plot to '{filename}'.")
+    print(f"Saved nested bar plot to '{filename}'.")
 
-
-def plot_accuracy_facet_grid(df, row_var, col_var, filename="facet_accuracy.png"):
+def plot_accuracy_by_role_prior_resolution_overall(df, filename="accuracy_by_role_prior_resolution_overall.png"):
     """
-    Creates a FacetGrid of barplots for accuracy, allowing quick comparisons across
-    two categorical variables. For instance:
-      - row_var = "resolution"
-      - col_var = "prior"
-    Then color/hue can be "role" or vice versa. Adjust to your needs.
+    Creates a bar plot showing the overall accuracy (across all stages) for each
+    combination of (role, prior, resolution).
     """
-    # We'll group by stage and the chosen factors to get average accuracy
-    group_cols = ["stage", row_var, col_var, "role"]  # 'role' is the hue
-    grouped = df.groupby(group_cols)["correct"].mean().reset_index()
+    required_cols = {"role", "prior", "resolution"}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        print(f"Skipping overall bar plot because these columns are missing: {missing}")
+        return
     
-    # Create the facet grid
-    g = sns.FacetGrid(
-        grouped, 
-        row=row_var, 
-        col=col_var, 
-        margin_titles=True, 
-        sharey=True,
-        height=4, 
-        aspect=1.2
+    # Group by (role, prior, resolution) to get mean accuracy across all stages
+    grouped = (
+        df.groupby(["role", "prior", "resolution"])["correct"]
+        .mean()
+        .reset_index(name="accuracy")
     )
-    # Within each facet, plot a bar chart with hue="role"
-    g.map_dataframe(
-        sns.barplot, 
-        x="stage", 
-        y="correct", 
-        hue="role", 
-        palette="muted",
-        errorbar=None
+
+    # Create a single label for the x-axis (role|prior|resolution)
+    grouped["combo_label"] = (
+        grouped["role"].astype(str)
+        + " | "
+        + grouped["prior"].astype(str)
+        + " | "
+        + grouped["resolution"].astype(str)
     )
     
-    # Rotate x labels, set y limit to [0,1], and adjust layout
-    for ax in g.axes.flatten():
-        ax.tick_params(axis='x', rotation=45)
-        ax.set_ylim(0, 1)
-        ax.set_xlabel("Stage")
-        ax.set_ylabel("Accuracy")
-    
-    g.add_legend()
+    plt.figure(figsize=(12, 8))
+    sns.barplot(
+        x="combo_label",
+        y="accuracy",
+        data=grouped,
+        palette="tab20"
+    )
+    plt.ylim(0, 1)
+    plt.xticks(rotation=45, ha="right")
+    plt.xlabel("Role | Prior | Resolution")
+    plt.ylabel("Fraction Correct")
+    plt.title("Overall Accuracy by (Role, Prior, Resolution)")
     plt.tight_layout()
     plt.savefig(filename, dpi=300)
     plt.close()
-    
-    print(f"Saved facet grid plot to '{filename}'.")
-
+    print(f"Saved overall (role, prior, resolution) plot to '{filename}'.")
 
 def main():
     json_file = "experiment_results.json"
@@ -220,34 +220,16 @@ def main():
     print("\n=== Accuracy Summary ===")
     summarize_accuracy(df)
     
-    # 3) Plot accuracy by stage (bar plot)
+    # 3) Plot some simpler bar charts
     plot_accuracy_by_group(df, ["stage"], filename="accuracy_by_stage.png")
-    
-    # 4) Plot accuracy by role (bar plot)
     plot_accuracy_by_group(df, ["role"], filename="accuracy_by_role.png")
-    
-    # 5) Plot accuracy by stage & role together (bar plot)
     plot_accuracy_by_group(df, ["stage", "role"], filename="accuracy_by_stage_role.png")
     
-    # 6) Single line plot: accuracy across stages for all factors (role, prior, resolution)
-    #    This might be very busy if you have many combinations
-    if all(col in df.columns for col in ["role", "prior", "resolution"]):
-        plot_accuracy_across_stages_all_factors(df, filename="accuracy_all_factors.png")
-    else:
-        print("Skipping multi-factor line plot because 'role', 'prior', or 'resolution' is missing.")
+    # 4) The existing nested bar plot for stage × role × prior × resolution
+    plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resolution.png")
     
-    # 7) Optional: Facet grid to compare accuracy by resolution/prior/role
-    #    Adjust row_var, col_var as needed
-    if all(col in df.columns for col in ["role", "prior", "resolution"]):
-        plot_accuracy_facet_grid(
-            df, 
-            row_var="resolution", 
-            col_var="prior",
-            filename="facet_accuracy_resolution_prior.png"
-        )
-    else:
-        print("Skipping facet grid because 'role', 'prior', or 'resolution' is missing.")
-
+    # 5) NEW: Overall accuracy plot by role, prior, resolution (all stages combined)
+    plot_accuracy_by_role_prior_resolution_overall(df, filename="accuracy_by_role_prior_resolution_overall.png")
 
 if __name__ == "__main__":
     main()

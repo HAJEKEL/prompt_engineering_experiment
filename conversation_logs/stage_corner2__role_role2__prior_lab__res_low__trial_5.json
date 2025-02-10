@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "This section also shows a corner or transition point.\n\n**Assumptions**\n1. Uniform stiffness for transition.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle indicates a corner of the groove.\n\n**Assumptions**\n1. Equal low stiffness required in all axes.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to provide the stiffness matrix for the photographed structure."
+        "text": "I'm unable to determine the stiffness matrix from this image."
       }
     ]
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/ent.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "I'm unable to determine the stiffness matrix from the image alone. Typically, this requires specific mechanical properties of the material and structure, such as modulus of elasticity, moment of inertia, and geometrical dimensions. Can you provide more detailed data or context?"
+      }
+    ]
+  }
+]

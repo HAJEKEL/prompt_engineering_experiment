@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a bottom section, likely where the entrance is located at the left-bottom of the structure. \n\n**Assumptions**\n1. High stiffness along Z.\n2. X, Y directions with low stiffness.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The highlighted region seems to indicate an entrance or exit point at the bottom of the structure.\n\n**Assumptions**\n1. High stiffness in Z to control vertical entry/exit.\n2. Low stiffness in X and Y.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

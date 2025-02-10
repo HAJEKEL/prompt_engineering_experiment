@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The marked groove appears to be aligned predominantly along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

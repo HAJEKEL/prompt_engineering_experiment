@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle shows a section along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle highlights an upward corner in the Z\u2013X plane. This features elements of upward motion along Z and lateral motion along X.\n\n**Assumptions**\n1. High stiffness in Z and X directions for combined upward and lateral movement.\n2. The matrix is symmetrical.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [200, 0, 0],\n    [0, 100, 0],\n    [0, 0, 200]\n  ]\n}\n```"
       }
     ]
   }

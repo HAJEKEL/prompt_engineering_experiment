@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "I'm unable to determine the stiffness matrix for the provided image."
+        "text": "I'm unable to determine the stiffness matrix from this image alone. Analyzing or computing a stiffness matrix typically requires detailed information and physical analysis of the material properties, geometry, and boundary conditions of the structure."
       }
     ]
   }
