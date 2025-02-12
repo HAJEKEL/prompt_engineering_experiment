@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import sys
+import scipy.stats as stats
 
 sns.set(style="whitegrid")
 
@@ -15,9 +16,7 @@ chronological_stages = [
     "corner1",
     "xtraverse",
     "corner2",
-    "slant",
-    "ytraverse2",
-    "exit"
+    "slant"
 ]
 
 def load_and_process_data(json_file):
@@ -40,9 +39,6 @@ def load_and_process_data(json_file):
     if "conversation_prior" in df.columns:
         df.rename(columns={"conversation_prior": "prior"}, inplace=True)
 
-    # Drop rows that have no matrix or metrics
-    df = df.dropna(subset=["estimated_matrix", "metrics"]).reset_index(drop=True)
-    
     # Extract the 'correct' field from the metrics dictionary (if present)
     def extract_correct(metrics):
         if isinstance(metrics, dict) and "correct" in metrics:
@@ -50,9 +46,6 @@ def load_and_process_data(json_file):
         return False  # or np.nan, depending on your preference
     
     df["correct"] = df["metrics"].apply(extract_correct)
-    
-    # Filter down to rows where 'correct' is True/False
-    df = df.dropna(subset=["correct"]).reset_index(drop=True)
     
     # Convert 'correct' to bool, just to be sure
     df["correct"] = df["correct"].astype(bool)
@@ -70,6 +63,84 @@ def load_and_process_data(json_file):
     df = df.sort_values("stage_order").reset_index(drop=True)
     
     return df
+    
+def plot_trial_counts(df, filename="trial_counts_by_stage.png"):
+    """
+    Creates a bar plot showing the total number of trials and the number of correct trials for each stage.
+    """
+    trial_counts = df.groupby("stage")["correct"].agg(["count", "sum"]).reset_index()
+    trial_counts.rename(columns={"count": "total_trials", "sum": "correct_trials"}, inplace=True)
+
+    plt.figure(figsize=(10, 6))
+    width = 0.4  # Bar width for better separation
+
+    # Plot total trials
+    plt.bar(trial_counts["stage"], trial_counts["total_trials"], width=width, label="Total Trials", color="lightgray")
+
+    # Plot correct trials
+    plt.bar(trial_counts["stage"], trial_counts["correct_trials"], width=width, label="Correct Trials", color="C0")
+
+    plt.xticks(rotation=45, ha="right")
+    plt.xlabel("Stage")
+    plt.ylabel("Number of Trials")
+    plt.title("Total Trials vs Correct Trials by Stage")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+    plt.close()
+
+    print(f"Saved trial counts plot to '{filename}'.")
+
+def plot_trial_counts_per_combination(df, output_dir="trial_count_plots"):
+    """
+    Generates a bar plot for each (role, prior, resolution) combination, showing 
+    total and correct trials at each stage.
+    """
+    os.makedirs(output_dir, exist_ok=True)  # Ensure output directory exists
+
+    # Get all unique combinations of (role, prior, resolution)
+    unique_combinations = df.groupby(["role", "prior", "resolution"]).size().reset_index()[["role", "prior", "resolution"]]
+
+    for _, row in unique_combinations.iterrows():
+        role, prior, resolution = row["role"], row["prior"], row["resolution"]
+
+        # Filter the DataFrame for this specific combination
+        df_filtered = df[
+            (df["role"] == role) & 
+            (df["prior"] == prior) & 
+            (df["resolution"] == resolution)
+        ]
+
+        if df_filtered.empty:
+            print(f"No data found for {role} | {prior} | {resolution}. Skipping plot.")
+            continue
+
+        # Group by stage and count total and correct trials
+        trial_counts = df_filtered.groupby("stage")["correct"].agg(["count", "sum"]).reset_index()
+        trial_counts.rename(columns={"count": "total_trials", "sum": "correct_trials"}, inplace=True)
+
+        # Generate filename dynamically
+        filename = f"{output_dir}/trial_counts_{role}_{prior}_{resolution}.png"
+
+        plt.figure(figsize=(10, 6))
+        width = 0.4  # Bar width for better separation
+
+        # Plot total trials
+        plt.bar(trial_counts["stage"], trial_counts["total_trials"], width=width, label="Total Trials", color="lightgray")
+
+        # Plot correct trials
+        plt.bar(trial_counts["stage"], trial_counts["correct_trials"], width=width, label="Correct Trials", color="C0")
+
+        plt.xticks(rotation=45, ha="right")
+        plt.xlabel("Stage")
+        plt.ylabel("Number of Trials")
+        plt.title(f"Total vs Correct Trials ({role} | {prior} | {resolution})")
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(filename, dpi=300)
+        plt.close()
+
+        print(f"Saved plot for {role} | {prior} | {resolution} to '{filename}'.")
 
 def summarize_accuracy(df):
     """
@@ -125,12 +196,25 @@ def plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resoluti
     
     This way, at each stage, you see multiple bars split by role -> prior -> resolution.
     """
-    required_cols = {"stage", "role", "prior", "resolution"}
+    required_cols = {"stage", "role", "prior", "resolution", "correct"}
     if not required_cols.issubset(df.columns):
         missing = required_cols - set(df.columns)
         print(f"Skipping nested bar plot because these columns are missing: {missing}")
         return
+
+    # Print total trials to verify
+    total_trials = len(df)
+    print(f"Total number of trials: {total_trials}")
     
+    if total_trials != 540:
+        print(f"Warning: Expected 540 trials but found {total_trials}")
+
+    # Print unique values in key columns to check data consistency
+    print("Unique values in key columns:")
+    for col in ["stage", "role", "prior", "resolution"]:
+        unique_vals = df[col].unique()
+        print(f"  {col}: {unique_vals}")
+
     # Group to get mean accuracy by stage, role, prior, resolution
     grouped = (
         df.groupby(["stage", "role", "prior", "resolution"])["correct"]
@@ -138,6 +222,10 @@ def plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resoluti
         .reset_index(name="accuracy")
     )
     
+    # Print accuracy statistics
+    print("\nMean accuracy per configuration:")
+    print(grouped)
+
     # Create a single label for the hue (role|prior|resolution)
     grouped["combo_label"] = (
         grouped["role"].astype(str)
@@ -146,7 +234,7 @@ def plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resoluti
         + " | "
         + grouped["resolution"].astype(str)
     )
-    
+
     plt.figure(figsize=(12, 8))
     sns.barplot(
         x="stage", 
@@ -164,7 +252,51 @@ def plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resoluti
     plt.tight_layout()
     plt.savefig(filename, dpi=300)
     plt.close()
+    
     print(f"Saved nested bar plot to '{filename}'.")
+
+def plot_accuracy_nested_bar_filtered(df, filename="accuracy_by_stage_role_prior_resolution_filtered.png"):
+    """
+    Creates a grouped bar plot for accuracy by stage, but only for the 
+    role-prior-resolution combination: role3 | none | high.
+    """
+    required_cols = {"stage", "role", "prior", "resolution"}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        print(f"Skipping filtered bar plot because these columns are missing: {missing}")
+        return
+    
+    # Filter for the specific combination
+    df_filtered = df[
+        (df["role"] == "role3") & 
+        (df["prior"] == "none") & 
+        (df["resolution"] == "high")
+    ]
+
+    if df_filtered.empty:
+        print("No data found for role3 | none | high. Skipping filtered plot.")
+        return
+
+    # Group to get mean accuracy by stage
+    grouped = df_filtered.groupby("stage")["correct"].mean().reset_index(name="accuracy")
+
+    plt.figure(figsize=(12, 8))
+    sns.barplot(
+        x="stage", 
+        y="accuracy",
+        data=grouped,
+        color="C0"
+    )
+    plt.ylim(0, 1)
+    plt.xticks(rotation=45, ha="right")
+    plt.xlabel("Stage")
+    plt.ylabel("Fraction Correct")
+    plt.title("Accuracy by Stage (Only Role3 | None | High)")
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+    plt.close()
+    print(f"Saved filtered bar plot to '{filename}'.")
+
 
 def plot_accuracy_by_role_prior_resolution_overall(df, filename="accuracy_by_role_prior_resolution_overall.png"):
     """
@@ -210,26 +342,226 @@ def plot_accuracy_by_role_prior_resolution_overall(df, filename="accuracy_by_rol
     plt.close()
     print(f"Saved overall (role, prior, resolution) plot to '{filename}'.")
 
+def calculate_accuracy_per_combination(df):
+    """
+    Computes and prints the overall accuracy for each (role, prior, resolution) combination.
+    Returns a DataFrame sorted in descending order of accuracy.
+    """
+    required_cols = {"role", "prior", "resolution", "correct"}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        print(f"Skipping accuracy calculation because these columns are missing: {missing}")
+        return pd.DataFrame()  # Return an empty DataFrame if required columns are missing
+    
+    # Group by (role, prior, resolution) and calculate accuracy
+    accuracy_df = (
+        df.groupby(["role", "prior", "resolution"])["correct"]
+        .agg(["count", "sum"])  # Count total trials and correct trials
+        .reset_index()
+    )
+    
+    # Compute accuracy (correct / total)
+    accuracy_df["accuracy"] = accuracy_df["sum"] / accuracy_df["count"]
+
+    # Rename columns for clarity
+    accuracy_df.rename(columns={"count": "total_trials", "sum": "correct_trials"}, inplace=True)
+
+    # Sort by accuracy in descending order
+    accuracy_df = accuracy_df.sort_values(by="accuracy", ascending=False).reset_index(drop=True)
+
+    # Print results
+    print("\n=== Ranked Accuracy by (Role, Prior, Resolution) ===")
+    print(accuracy_df)
+
+    return accuracy_df
+
+def save_ranked_accuracy_as_tuples(df, filename="ranked_accuracy.py"):
+    """
+    Computes overall accuracy for each (role, prior, resolution) combination,
+    sorts it in descending order, formats it as a list of tuples,
+    prints it, and saves it to a Python file.
+    """
+    required_cols = {"role", "prior", "resolution", "correct"}
+    if not required_cols.issubset(df.columns):
+        missing = required_cols - set(df.columns)
+        print(f"Skipping accuracy calculation because these columns are missing: {missing}")
+        return
+    
+    # Group by (role, prior, resolution) and calculate accuracy
+    accuracy_df = (
+        df.groupby(["role", "prior", "resolution"])["correct"]
+        .agg(["count", "sum"])  # Count total trials and correct trials
+        .reset_index()
+    )
+    
+    # Compute accuracy (correct / total)
+    accuracy_df["accuracy"] = accuracy_df["sum"] / accuracy_df["count"]
+
+    # Sort by accuracy in descending order
+    accuracy_df = accuracy_df.sort_values(by="accuracy", ascending=False).reset_index(drop=True)
+
+    # Convert to a list of tuples
+    accuracy_tuples = [
+        (row["role"], row["prior"], row["resolution"], round(row["accuracy"], 6)) 
+        for _, row in accuracy_df.iterrows()
+    ]
+
+    # Print formatted output
+    print("\nsave_ranked_accuracy_as_tuples=== Ranked Accuracy (Tuple Format) ===")
+    print("data = [")
+    for item in accuracy_tuples:
+        print(f"    {item},")
+    print("]")
+
+    # Save to a Python file
+    with open(filename, "w") as f:
+        f.write("data = [\n")
+        for item in accuracy_tuples:
+            f.write(f"    {item},\n")
+        f.write("]\n")
+
+    print(f"Ranked accuracy saved to '{filename}'.")
+
+    return accuracy_tuples
+
+def analyze_accuracy_with_ci(data, n_trials=30, save_plot="accuracy_confidence_intervals.png"):
+    """
+    Analyzes accuracy of (role, prior, resolution) combinations with 95% confidence intervals (CI).
+    Identifies the best configuration and determines statistical significance by checking CI overlap.
+
+    Parameters:
+    - data: List of tuples (role, prior, resolution, accuracy)
+    - n_trials: Number of trials per configuration (default: 30)
+    - save_plot: Filename to save the plot
+
+    Returns:
+    - DataFrame containing accuracy, CI, and statistical comparison results.
+    """
+
+    # Convert to DataFrame
+    df = pd.DataFrame(data, columns=["role", "prior", "resolution", "accuracy"])
+
+    # Compute 95% CI for each accuracy value
+    def compute_ci(accuracy, n):
+        """Computes 95% confidence interval for a proportion"""
+        z = 1.96  # 95% confidence level
+        se = np.sqrt((accuracy * (1 - accuracy)) / n)  # Standard error
+        ci_lower = accuracy - z * se
+        ci_upper = accuracy + z * se
+        return round(ci_lower, 3), round(ci_upper, 3)
+
+    df["CI"] = df["accuracy"].apply(lambda acc: compute_ci(acc, n_trials))
+
+    # Sort by accuracy (best first)
+    df = df.sort_values(by="accuracy", ascending=False).reset_index(drop=True)
+
+    # Identify best-performing configuration
+    best_accuracy = df.iloc[0]["accuracy"]
+    best_CI = df.iloc[0]["CI"]
+
+    # Check CI overlap with all other configurations
+    overlapping = []
+    non_overlapping = []
+
+    for i in range(1, len(df)):  # Compare with all others
+        curr_accuracy = df.iloc[i]["accuracy"]
+        curr_CI = df.iloc[i]["CI"]
+
+        # Check if CI ranges overlap
+        if (best_CI[0] <= curr_CI[1]) and (curr_CI[0] <= best_CI[1]):
+            overlapping.append((df.iloc[i][["role", "prior", "resolution"]].tolist(), curr_accuracy, curr_CI))
+        else:
+            non_overlapping.append((df.iloc[i][["role", "prior", "resolution"]].tolist(), curr_accuracy, curr_CI))
+
+    # Print results
+    print(f"\n=== Best Configuration ===")
+    print(f"{df.iloc[0][['role', 'prior', 'resolution']].tolist()} - Accuracy: {best_accuracy}, CI: {best_CI}\n")
+
+    print("Configurations with **Overlapping CI** (Not Statistically Significant Difference):")
+    for entry in overlapping:
+        print(f"- {entry[0]}: Accuracy = {entry[1]}, CI = {entry[2]}")
+
+    print("\nConfigurations with **Non-Overlapping CI** (Statistically Significant Difference!):")
+    for entry in non_overlapping:
+        print(f"- {entry[0]}: Accuracy = {entry[1]}, CI = {entry[2]}")
+
+    # Final conclusion
+    if len(non_overlapping) > 0:
+        print("\n✅ The best configuration is **statistically significantly better** than at least some other configurations!")
+    else:
+        print("\n❌ The confidence intervals overlap with all configurations. No statistically significant difference.")
+
+    # Visualization
+    plt.figure(figsize=(8, 6))
+
+    # Plot accuracy values with error bars (showing confidence intervals)
+    for i in range(len(df)):
+        accuracy = df.iloc[i]["accuracy"]
+        ci = df.iloc[i]["CI"]
+        role = df.iloc[i]["role"]
+        prior = df.iloc[i]["prior"]
+        resolution = df.iloc[i]["resolution"]
+
+        # Define color: Red for the best, blue for the rest
+        color = 'red' if i == 0 else 'blue'
+
+        plt.errorbar(
+            accuracy, i, 
+            xerr=[[accuracy - ci[0]], [ci[1] - accuracy]], 
+            fmt='o', color=color, capsize=5, label="_nolegend_" if i > 0 else "Best Configuration"
+        )
+
+        # Annotate each point directly on top of the interval line
+        plt.text(accuracy, i + 0.2, f"{role}, {prior}, {resolution}", 
+                 verticalalignment='bottom', horizontalalignment='center')
+
+    # Best CI range lines
+    plt.axvline(x=best_CI[0], color='red', linestyle='--', linewidth=1, label="Best CI Range")
+    plt.axvline(x=best_CI[1], color='red', linestyle='--', linewidth=1)
+
+    # Formatting
+    plt.xlabel("Accuracy")
+    plt.ylabel("Configuration Ranking")
+    plt.title("Confidence Intervals of Accuracy for Each Configuration")
+    plt.legend()
+    plt.grid(True, linestyle="--", alpha=0.5)
+
+    # Save the plot
+    plt.savefig(save_plot, dpi=300)
+    plt.close()
+
+    print(f"\n📊 Confidence interval plot saved as '{save_plot}'.")
+
+    return df
+
 def main():
     json_file = "experiment_results.json"
     
-    # 1) Load the data
+    # Load and process data
     df = load_and_process_data(json_file)
-    
-    # 2) Print basic accuracy summary
+    accuracy_df = calculate_accuracy_per_combination(df)
+    data=save_ranked_accuracy_as_tuples(df)
+    # Print accuracy summary
     print("\n=== Accuracy Summary ===")
     summarize_accuracy(df)
     
-    # 3) Plot some simpler bar charts
+    # Generate all plots
     plot_accuracy_by_group(df, ["stage"], filename="accuracy_by_stage.png")
     plot_accuracy_by_group(df, ["role"], filename="accuracy_by_role.png")
     plot_accuracy_by_group(df, ["stage", "role"], filename="accuracy_by_stage_role.png")
-    
-    # 4) The existing nested bar plot for stage × role × prior × resolution
+    plot_trial_counts(df, filename="trial_counts_by_stage.png")
+    plot_trial_counts_per_combination(df, output_dir="trial_count_plots")
+    # Full nested plot (all roles, priors, resolutions)
     plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resolution.png")
     
-    # 5) NEW: Overall accuracy plot by role, prior, resolution (all stages combined)
+    confidence_intervals = analyze_accuracy_with_ci(data, n_trials=30, save_plot="accuracy_confidence_intervals.png")
+
+    # Filtered plot (only role3 | none | high)
+    plot_accuracy_nested_bar_filtered(df, filename="accuracy_by_stage_role_prior_resolution_filtered.png")
+    
+    # Overall accuracy for each role-prior-resolution combination
     plot_accuracy_by_role_prior_resolution_overall(df, filename="accuracy_by_role_prior_resolution_overall.png")
 
 if __name__ == "__main__":
     main()
+

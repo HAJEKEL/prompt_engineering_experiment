@@ -16,8 +16,6 @@ chronological_stages = [
     "xtraverse",
     "corner2",
     "slant",
-    "ytraverse2",
-    "exit"
 ]
 
 def load_and_process_data(json_file):
@@ -40,9 +38,6 @@ def load_and_process_data(json_file):
     if "conversation_prior" in df.columns:
         df.rename(columns={"conversation_prior": "prior"}, inplace=True)
 
-    # Drop rows that have no matrix or metrics
-    df = df.dropna(subset=["estimated_matrix", "metrics"]).reset_index(drop=True)
-    
     # Extract the 'correct' field from the metrics dictionary (if present)
     def extract_correct(metrics):
         if isinstance(metrics, dict) and "correct" in metrics:
@@ -50,9 +45,6 @@ def load_and_process_data(json_file):
         return False  # or np.nan, depending on your preference
     
     df["correct"] = df["metrics"].apply(extract_correct)
-    
-    # Filter down to rows where 'correct' is True/False
-    df = df.dropna(subset=["correct"]).reset_index(drop=True)
     
     # Convert 'correct' to bool, just to be sure
     df["correct"] = df["correct"].astype(bool)
