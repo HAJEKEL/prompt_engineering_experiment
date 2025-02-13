@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle highlights a groove oriented along the Y-axis.\n\n**Assumptions**\n1. High stiffness aligns with Y.\n2. X and Z are lower, at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "This area of the groove structure appears to be a corner. Uniform low stiffness is required in all directions to avoid excessive forces on the walls.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

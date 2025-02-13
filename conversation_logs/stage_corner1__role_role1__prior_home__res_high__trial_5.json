@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a horizontal section within the X\u2013Y plane. This suggests high stiffness in the X direction.\n\n**Assumptions**\n1. High X stiffness.\n2. Y and Z stiffness are equal.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The groove in the red circle appears to move primarily along the Y-axis.\n\n**Assumptions**\n1. High stiffness along Y.\n2. X and Z remain low at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

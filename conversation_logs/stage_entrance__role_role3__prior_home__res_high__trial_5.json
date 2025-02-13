@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle marks an entrance at the left-bottom of the structure. The stiffness should be high in the Z-axis to guide movement along it while keeping low stiffness in X and Y for easy sliding.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The red circle highlights an entrance or exit point at the bottom of the structure, indicating that the movement should be along the Z-axis (normal to the surface) with low stiffness in the X and Y directions to prevent damage.\n\n**Assumptions**\n1. High stiffness in Z-axis direction.\n2. Low stiffness in X and Y directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

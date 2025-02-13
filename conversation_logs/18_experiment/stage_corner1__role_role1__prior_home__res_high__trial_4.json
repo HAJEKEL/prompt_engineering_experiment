@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/c1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle highlights an upward corner in the Z\u2013X plane. This features elements of upward motion along Z and lateral motion along X.\n\n**Assumptions**\n1. High stiffness in Z and X directions for combined upward and lateral movement.\n2. The matrix is symmetrical.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [200, 0, 0],\n    [0, 100, 0],\n    [0, 0, 200]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

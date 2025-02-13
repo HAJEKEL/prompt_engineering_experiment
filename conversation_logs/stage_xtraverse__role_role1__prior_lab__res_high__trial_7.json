@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/xt.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle indicates a section where the groove transitions, likely involving a coupling between Y and Z.\n\n**Assumptions**\n1. Stiffness is coupled between Y and Z to allow smooth movement along this path.\n2. X-axis remains fixed.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 150, -50],\n    [0, -50, 150]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

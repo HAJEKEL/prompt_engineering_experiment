@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle highlights a straight groove along the Y-axis.\n\n**Assumptions**\n1. High stiffness aligned with Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle indicates a section at the entrance or base. High stiffness is required along the Z-axis with low stiffness in X and Y.\n\n**Assumptions**\n1. High stiffness in Z.\n2. Low stiffness in X and Y.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
       }
     ]
   }

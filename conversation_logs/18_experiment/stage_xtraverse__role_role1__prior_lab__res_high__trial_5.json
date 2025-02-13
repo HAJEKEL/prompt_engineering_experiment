@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/xt.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The highlighted section represents a transition in the structure, where the groove is angled similarly to the connection between sections.\n\n**Assumptions**\n1. High stiffness primarily along X and Z.\n2. Balance with some Y stiffness for the transition.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [200, 0, 0],\n    [0, 150, 0],\n    [0, 0, 200]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

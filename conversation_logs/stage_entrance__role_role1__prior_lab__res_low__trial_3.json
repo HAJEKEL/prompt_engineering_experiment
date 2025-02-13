@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The highlighted portion indicates a section where movement is primarily along the Z-axis.\n\n**Assumptions**\n1. High stiffness along Z.\n2. X and Y directions are 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The image shows a 3D printed structure with grooves in different directions. The red circle appears to mark an insertion or exit point. To move in or out of that we want to move in a direction normal to the table, so we want high stiffness in the z direction and low in others to avoid damaging the groove.\n\n**Assumptions**\n1. The movement is in the z direction.\n2. Stiffness is high in z direction and low x and y directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

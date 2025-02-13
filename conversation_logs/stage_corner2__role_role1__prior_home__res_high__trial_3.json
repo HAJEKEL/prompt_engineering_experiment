@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image highlights a corner section.\n\n**Assumptions**\n1. Uniform stiffness to accommodate direction change.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The image shows a groove likely involving a turn or corner.\n\n**Assumptions**\n1. Moderate stiffness uniformly in x, y, and z directions due to the transition nature.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 150]\n  ]\n}\n```"
       }
     ]
   }

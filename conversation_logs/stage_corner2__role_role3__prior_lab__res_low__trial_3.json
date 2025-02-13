@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a corner in the groove structure. In such cases, low and equal stiffness is desired in all directions to prevent excessive forces and allow easier movement.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle indicates a groove oriented diagonally in the YZ-plane.\n\n**Assumptions**\n1. The groove follows a diagonal in the YZ-plane.\n2. High stiffness is required to control movement along the groove.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, 75],\n    [0, 75, 175]\n  ]\n}\n```"
       }
     ]
   }

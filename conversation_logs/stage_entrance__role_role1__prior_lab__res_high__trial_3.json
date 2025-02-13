@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image depicts a groove with a downward incline at a 45\u00b0 angle within the Y\u2013Z plane. This particular configuration necessitates higher stiffness in the Z direction to counteract downward forces, as well as balanced stiffness along the Y axis.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, 75],\n    [0, 75, 175]\n  ]\n}\n```"
+        "text": "This section depicts a groove oriented primarily along the Y-axis. \n\n**Assumptions**\n1. High stiffness aligned with Y.\n2. The X and Z axes remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

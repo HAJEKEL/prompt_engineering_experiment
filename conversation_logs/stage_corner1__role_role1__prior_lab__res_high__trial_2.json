@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a groove oriented along the Y-axis.\n\n**Assumptions**\n1. High stiffness aligned with Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle highlights the top-left section of the groove, likely involving stiffness in the X and Y directions with possible changes in Z due to the corner.\n\n**Assumptions**\n1. Equal stiffness in X and Y.\n2. Adjusted Z for corner structure.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

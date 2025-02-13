@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle marks a corner or transition point in the groove structure, necessitating uniform low stiffness to prevent excessive lateral forces on the groove walls.\n\n**Assumptions**\n1. Stiffness equal and low in x, y, and z directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "The red circle highlights a corner in the structure, where uniform low stiffness is needed to allow gentle movement in all directions.\n\n**Assumptions**\n1. Low stiffness in x, y, and z directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

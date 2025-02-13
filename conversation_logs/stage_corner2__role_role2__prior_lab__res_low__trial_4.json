@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The groove highlighted is at a corner, requiring uniform low stiffness to prevent excessive forces on the walls.\n\n**Assumptions**\n1. Low stiffness in x, y, and z directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+        "text": "This groove section forms a corner in the structure. Uniform low stiffness is required in all axes to avoid excessive forces.\n\n**Assumptions**\n1. Stiffness is equal and low in x, y, and z directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

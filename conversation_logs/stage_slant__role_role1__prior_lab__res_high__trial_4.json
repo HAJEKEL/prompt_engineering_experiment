@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The image features a groove running vertically along the Z-axis. \n\n**Assumptions**\n1. The groove is aligned with the Z-axis.\n2. High stiffness is prioritized in the Z-direction. \n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The red circle highlights a vertical groove section aligned along the Y-axis, ensuring stability with high stiffness in the vertical direction.\n\n**Assumptions**\n1. High stiffness in Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
       }
     ]
   }

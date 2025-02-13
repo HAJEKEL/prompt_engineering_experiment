@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 150, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+        "text": "The section highlighted by the red circle appears to denote the horizontal groove.\n\n**Assumptions**\n1. High stiffness along the horizontal axis (X).\n2. Y and Z remain low for stability.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [300, 0, 0],\n    [0, 50, 0],\n    [0, 0, 50]\n  ]\n}\n```"
       }
     ]
   }

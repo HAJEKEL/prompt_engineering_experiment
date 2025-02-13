@@ -19,7 +19,7 @@
     "content": [
       {
         "type": "text",
-        "text": "The red circle indicates a groove sloping downward at approximately 45\u00b0 within the Y\u2013Z plane. Specifically, the groove extends along the y-axis while descending in the z-direction, following a negative slope.\n\n**Assumptions**\n1. The groove follows the equation z = -y.\n2. The x-coordinate remains fixed at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, -75],\n    [0, -75, 175]\n  ]\n}\n```"
+        "text": "The groove section highlighted is inclined at approximately 45\u00b0 within the Y\u2013Z plane. This configuration implies a need for stiffness coupling between the Y and Z axes.\n\n**Assumptions**\n1. The groove follows the equation z = -y.\n2. The x-coordinate stiffness remains at 100.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, -75],\n    [0, -75, 175]\n  ]\n}\n```"
       }
     ]
   }

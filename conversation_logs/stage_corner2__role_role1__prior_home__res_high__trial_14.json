@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/c2t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle shows a groove at a corner.\n\n**Assumptions**\n\n1. Stiffness is equal and moderate in x, y, and z directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [120, 0, 0],\n    [0, 120, 0],\n    [0, 0, 120]\n  ]\n}\n```"
+      }
+    ]
+  }
+]
