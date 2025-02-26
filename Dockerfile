@@ -17,7 +17,11 @@ COPY . /app
 RUN apt-get update && apt-get install -y \ 
     vim \
     curl \
+    gsfonts \
+    fonts-liberation \
     && rm -rf /var/lib/apt/lists/*
+
+
 
 # Create a non-root user
 ARG USERNAME=henk
