@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/st.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The section you've highlighted indicates a groove sloping downward at an angle in the YZ-plane.\n\n**Assumptions**\n1. Diagonal YZ-plane with coupled stiffness.\n2. Low stiffness in X.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 175, -75],\n    [0, -75, 175]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

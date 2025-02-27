@@ -1,0 +1,23 @@
+=== Ranked Accuracy by (Role, Prior, Resolution) ===
+stage   role prior resolution  entrance     slant  xtraverse  ytraverse1
+0      role1  home       high  0.733333  0.000000   0.600000    0.400000
+1      role1   lab       high  1.000000  0.133333   0.933333    0.666667
+2      role1   lab        low  1.000000  0.000000   1.000000    0.266667
+3      role2   lab       high  0.933333  0.066667   1.000000    0.666667
+4      role2   lab        low  1.000000  0.000000   1.000000    0.000000
+5      role3  home       high  0.933333  0.000000   0.933333    0.666667
+6      role3   lab       high  1.000000  0.000000   1.000000    0.933333
+7      role3   lab        low  1.000000  0.000000   1.000000    0.000000
+
+save_ranked_accuracy_as_tuples=== Ranked Accuracy (Tuple Format) ===
+data = [
+    ('role3', 'lab', 'high', 0.733333),
+    ('role1', 'lab', 'high', 0.683333),
+    ('role2', 'lab', 'high', 0.666667),
+    ('role3', 'home', 'high', 0.633333),
+    ('role1', 'lab', 'low', 0.566667),
+    ('role2', 'lab', 'low', 0.5),
+    ('role3', 'lab', 'low', 0.5),
+    ('role1', 'home', 'high', 0.433333),
+]
+Ranked accuracy saved to 'ranked_accuracy.py'.

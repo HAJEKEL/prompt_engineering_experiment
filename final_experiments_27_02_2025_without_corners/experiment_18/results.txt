@@ -1,0 +1,56 @@
+
+=== Ranked Accuracy by (Role, Prior, Resolution) ===
+stage   role prior resolution  entrance  slant  xtraverse  ytraverse1
+0      role1  home       high       0.4    0.0        0.6         0.6
+1      role1  home        low       0.8    0.0        0.2         0.0
+2      role1   lab       high       0.8    0.0        1.0         0.6
+3      role1   lab        low       0.8    0.0        1.0         0.0
+4      role1  none       high       0.0    0.0        0.0         0.0
+5      role1  none        low       0.0    0.0        0.0         0.0
+6      role2  home       high       0.2    0.0        0.0         0.4
+7      role2  home        low       0.0    0.0        0.0         0.2
+8      role2   lab       high       1.0    0.0        1.0         0.4
+9      role2   lab        low       0.8    0.0        1.0         0.0
+10     role2  none       high       0.0    0.0        0.0         0.2
+11     role2  none        low       0.0    0.0        0.0         0.0
+12     role3  home       high       0.8    0.0        1.0         0.8
+13     role3  home        low       0.8    0.0        0.0         0.0
+14     role3   lab       high       1.0    0.2        1.0         0.6
+15     role3   lab        low       1.0    0.0        1.0         0.0
+16     role3  none       high       0.2    0.0        0.0         0.0
+17     role3  none        low       0.0    0.0        0.0         0.0
+
+save_ranked_accuracy_as_tuples=== Ranked Accuracy (Tuple Format) ===
+data = [
+    ('role3', 'lab', 'high', 0.7),
+    ('role3', 'home', 'high', 0.65),
+    ('role2', 'lab', 'high', 0.6),
+    ('role1', 'lab', 'high', 0.6),
+    ('role3', 'lab', 'low', 0.5),
+    ('role2', 'lab', 'low', 0.45),
+    ('role1', 'lab', 'low', 0.45),
+    ('role1', 'home', 'high', 0.4),
+    ('role1', 'home', 'low', 0.25),
+    ('role3', 'home', 'low', 0.2),
+    ('role2', 'home', 'high', 0.15),
+    ('role2', 'home', 'low', 0.05),
+    ('role2', 'none', 'high', 0.05),
+    ('role3', 'none', 'high', 0.05),
+    ('role2', 'none', 'low', 0.0),
+    ('role1', 'none', 'low', 0.0),
+    ('role1', 'none', 'high', 0.0),
+    ('role3', 'none', 'low', 0.0),
+]
+Ranked accuracy saved to 'ranked_accuracy.py'.
+
+=== Accuracy Summary ===
+Total Trials: 360
+Total Correct: 102
+Overall Accuracy: 0.28
+
+Accuracy by Stage:
+        stage   correct
+0    entrance  0.477778
+1       slant  0.011111
+2   xtraverse  0.433333
+3  ytraverse1  0.211111

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/y1t.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle marks a turn or curve in the groove, involving more complex motion, potentially in all directions.\n\n**Assumptions**\n1. Stiffness is high in Y to maintain stability.\n2. Moderate stiffness in X and Z.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [150, 0, 0],\n    [0, 200, 0],\n    [0, 0, 150]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

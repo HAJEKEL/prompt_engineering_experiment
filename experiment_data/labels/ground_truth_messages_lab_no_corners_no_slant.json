@@ -1,0 +1,77 @@
+[
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Can you help me determine the stiffness matrix of this part of the groove?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/enl.jpg",
+                    "detail": "high"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "The image shows a 3D printed structure with grooves in different directions. The red circle appears to mark an insertion or exit point. To move in or out of that we want to move in a direction normal to the table, so we want high stiffness in z direction and low in others to avoid damaging the groove.\n\n**Assumptions**\n1. The movement is in the z direction.\n2. Stiffness is high in z direction and low x and y directions.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 100, 0],\n    [0, 0, 250]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "I need the stiffness matrix for this next area of the groove."
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/y1l.jpg",
+                    "detail": "high"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "The red circle indicates a groove primarily running along the Y-axis.\n\n**Assumptions**\n1. High stiffness aligned with Y.\n2. X and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [100, 0, 0],\n    [0, 250, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    },
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "Would you help me find the right stiffness for this groove section?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": "https://prompt-engineering-experiment.ngrok.io/images/xl.jpg",
+                    "detail": "high"
+                }
+            }
+        ]
+    },
+    {
+        "role": "system",
+        "content": [
+            {
+                "type": "text",
+                "text": "Here, the red circle indicates a groove oriented along the X-axis.\n\n**Assumptions**\n1. High stiffness along X.\n2. Y and Z remain at 100 N/m.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [250, 0, 0],\n    [0, 100, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+            }
+        ]
+    }
+]

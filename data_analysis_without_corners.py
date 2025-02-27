@@ -18,9 +18,7 @@ sns.set(style="whitegrid")
 chronological_stages = [
     "entrance",
     "ytraverse1",
-    "corner1",
     "xtraverse",
-    "corner2",
     "slant"
 ]
 
@@ -64,12 +62,7 @@ def load_and_process_data(json_file):
     
     df["stage_order"] = df["stage"].apply(stage_to_order)
 
-    # Define the stages to exclude
-    excluded_stages = {"corner1", "corner2","slant"}
 
-    # Filter out the corners
-    df = df[~df["stage"].isin(excluded_stages)]
-    
     # Sort by stage order for chronological plots
     df = df.sort_values("stage_order").reset_index(drop=True)
     
@@ -354,38 +347,75 @@ def plot_accuracy_by_role_prior_resolution_overall(df, filename="accuracy_by_rol
     plt.close()
     print(f"Saved overall (role, prior, resolution) plot to '{filename}'.")
 
-def calculate_accuracy_per_combination(df):
+
+import pandas as pd
+import numpy as np
+
+def calculate_accuracy_per_combination(df, output_file="accuracy_results.csv"):
     """
-    Computes and prints the overall accuracy for each (role, prior, resolution) combination.
-    Returns a DataFrame sorted in descending order of accuracy.
+    Computes and prints the accuracy for each (role, prior, resolution) combination,
+    displaying accuracy for each stage in separate columns.
+    Also calculates overall accuracy across all stages, an additional accuracy excluding the 'slant' stage,
+    and ranks combinations based on overall accuracy.
+    Saves the results to a CSV file for later use.
+    Returns a DataFrame with the new format.
     """
-    required_cols = {"role", "prior", "resolution", "correct"}
+    required_cols = {"role", "prior", "resolution", "stage", "correct"}
     if not required_cols.issubset(df.columns):
         missing = required_cols - set(df.columns)
         print(f"Skipping accuracy calculation because these columns are missing: {missing}")
         return pd.DataFrame()  # Return an empty DataFrame if required columns are missing
-    
-    # Group by (role, prior, resolution) and calculate accuracy
-    accuracy_df = (
-        df.groupby(["role", "prior", "resolution"])["correct"]
-        .agg(["count", "sum"])  # Count total trials and correct trials
-        .reset_index()
-    )
-    
-    # Compute accuracy (correct / total)
-    accuracy_df["accuracy"] = accuracy_df["sum"] / accuracy_df["count"]
 
-    # Rename columns for clarity
-    accuracy_df.rename(columns={"count": "total_trials", "sum": "correct_trials"}, inplace=True)
+    # Group by (role, prior, resolution, stage) and calculate accuracy per stage
+    grouped = df.groupby(["role", "prior", "resolution", "stage"])
+    accuracy = grouped['correct'].mean()
+    count = grouped['correct'].count()
+    standard_error = np.sqrt((accuracy * (1 - accuracy)) / count)
 
-    # Sort by accuracy in descending order
-    accuracy_df = accuracy_df.sort_values(by="accuracy", ascending=False).reset_index(drop=True)
+    accuracy_df = accuracy.reset_index()
+    accuracy_df['std_error'] = standard_error.reset_index(drop=True)
+
+    # Pivot table to get stages as separate columns
+    accuracy_df = accuracy_df.pivot(index=["role", "prior", "resolution"], columns="stage", values=["correct", "std_error"])
+    accuracy_df.columns = [f"{metric}_{stage}" for metric, stage in accuracy_df.columns]
+
+    # Compute overall accuracy across all stages
+    overall_grouped = df.groupby(["role", "prior", "resolution"])
+    overall_accuracy = overall_grouped['correct'].mean()
+    overall_count = overall_grouped['correct'].count()
+    overall_std_error = np.sqrt((overall_accuracy * (1 - overall_accuracy)) / overall_count)
+
+    # Compute overall accuracy excluding 'slant' stage
+    df_no_slant = df[df['stage'] != 'slant']
+    no_slant_grouped = df_no_slant.groupby(["role", "prior", "resolution"])
+    overall_accuracy_no_slant = no_slant_grouped['correct'].mean()
+    overall_count_no_slant = no_slant_grouped['correct'].count()
+    overall_std_error_no_slant = np.sqrt((overall_accuracy_no_slant * (1 - overall_accuracy_no_slant)) / overall_count_no_slant)
+
+    # Merge overall accuracy and standard errors into the pivoted table
+    accuracy_df["overall_accuracy"] = overall_accuracy
+    accuracy_df["overall_accuracy_std_error"] = overall_std_error
+    accuracy_df["overall_accuracy_no_slant"] = overall_accuracy_no_slant
+    accuracy_df["overall_accuracy_no_slant_std_error"] = overall_std_error_no_slant
+
+    # Reset index to make it a proper DataFrame
+    accuracy_df.reset_index(inplace=True)
+
+    # Sort rows based on overall accuracy in descending order
+    accuracy_df.sort_values(by="overall_accuracy", ascending=False, inplace=True)
+
+    # Save results to a CSV file
+    accuracy_df.to_csv(output_file, index=False)
+    print(f"Results saved to {output_file}")
 
     # Print results
     print("\n=== Ranked Accuracy by (Role, Prior, Resolution) ===")
     print(accuracy_df)
 
     return accuracy_df
+
+
+
 
 def save_ranked_accuracy_as_tuples(df, filename="ranked_accuracy.py"):
     """
@@ -436,7 +466,7 @@ def save_ranked_accuracy_as_tuples(df, filename="ranked_accuracy.py"):
 
     return accuracy_tuples
 
-def analyze_accuracy_with_ci(data, n_trials=30, save_plot="accuracy_confidence_intervals.png"):
+def analyze_accuracy_with_ci(data, n_trials=20, save_plot="accuracy_confidence_intervals.png"):
     """
     Analyzes accuracy of (role, prior, resolution) combinations with 95% confidence intervals (CI).
     Identifies the best configuration and determines statistical significance by checking CI overlap.
@@ -547,7 +577,7 @@ def analyze_accuracy_with_ci(data, n_trials=30, save_plot="accuracy_confidence_i
     return df
 
 def main():
-    json_file = "experiment_results_renamed_home_ideal.json"
+    json_file = "experiment_results.json"
     
     # Load and process data
     df = load_and_process_data(json_file)
@@ -567,7 +597,7 @@ def main():
     # Full nested plot (all roles, priors, resolutions)
     plot_accuracy_nested_bar(df, filename="accuracy_by_stage_role_prior_resolution.png")
     
-    confidence_intervals = analyze_accuracy_with_ci(data, n_trials=30, save_plot="accuracy_confidence_intervals.png")
+    confidence_intervals = analyze_accuracy_with_ci(data, n_trials=20, save_plot="accuracy_confidence_intervals.png")
 
     # Filtered plot (only role3 | none | high)
     plot_accuracy_nested_bar_filtered(df, filename="accuracy_by_stage_role_prior_resolution_filtered.png")

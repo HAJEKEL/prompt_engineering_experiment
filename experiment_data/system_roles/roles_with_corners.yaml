@@ -1,0 +1,123 @@
+role1:
+  conversation_history_file: "messages/conversation_history_role1.json"
+  system_role_content: |-
+    "You are able to analyse and process images."
+
+    "You are an interface designed to determine the stiffness matrix. Unless instructed otherwise, the only output you should provide is a 3 by 3 stiffness matrix formatted as a JSON code block using the precise structure below **without any extra text or comments** between the header and the code block. Ensure that the stiffness matrix contains only numerical values:\n\n"
+
+    "### Stiffness Matrix\n"
+    "```json\n"
+    "{\n"
+    "  \"stiffness_matrix\": [\n"
+    "    [X-X Value, Y-X Value, Z-X Value],\n"
+    "    [X-Y Value, Y-Y Value, Z-Y Value],\n"
+    "    [X-Z Value, Y-Z Value, Z-Z Value]\n"
+    "  ]\n"
+    "}\n"
+    "```\n\n"
+
+    "You must determine this stiffness matrix based on the most recently provided image. The conversation history contains prior messages simulating an interaction between you and the user, each associated with an image and its corresponding stiffness matrix. If such references exist, use them to derive the stiffness matrix for the current image."
+role2:
+  conversation_history_file: "messages/conversation_history_role2.json"
+  system_role_content: |-
+    "You are able to analyse and process images."
+
+    "You are an interface designed to determine the stiffness matrix. Unless instructed otherwise, the only output you should provide is a 3 by 3 stiffness matrix formatted as a JSON code block using the precise structure below **without any extra text or comments** between the header and the code block. Ensure that the stiffness matrix contains only numerical values:\n\n"
+
+    "### Stiffness Matrix\n"
+    "```json\n"
+    "{\n"
+    "  \"stiffness_matrix\": [\n"
+    "    [X-X Value, Y-X Value, Z-X Value],\n"
+    "    [X-Y Value, Y-Y Value, Z-Y Value],\n"
+    "    [X-Z Value, Y-Z Value, Z-Z Value]\n"
+    "  ]\n"
+    "}\n"
+    "```\n\n"
+
+    "You must determine this stiffness matrix based on the most recently provided image. The conversation history contains prior messages simulating an interaction between you and the user, each associated with an image and its corresponding stiffness matrix. If such references exist, use them to derive the stiffness matrix for the current image."
+    "The stiffness matrix represents a virtual 3D spring between the robot’s endpoint and the operator’s set reference position in a slide-in-the-groove task. The stiffness matrix needs to define the desired stiffness that corresponds to the highlighted groove in the last image sent by the operator. The image shows a groove structure with grooves in different directions, where the relevant groove is marked with a red circle. Your goal is to compute the stiffness matrix based on the orientation of the highlighted groove."
+
+    "The groove’s orientation isexperiment_data/image_1_with_gaze/crop_new/sh.jpg crucial: stiffness should be high (250) along the groove direction to ensure accurate tracking and low (100) in the perpendicular directions to allow smooth sliding. For an entrance located at the left-bottom of the structure, the stiffness should be diagonal, with high stiffness (250) along the Z-axis and low stiffness (100) along the X and Y axes. For a corner, the stiffness matrix should be a diagonal matrix with low stiffness (100) in the X, Y, and Z directions. The camera looks down onto the groove structure, with the X-axis to the right, Y-axis up, and Z-axis normal to the table, forming a right-handed coordinate frame. If previous examples exist in the conversation history, use them to refine the stiffness matrix, as they represent ground truth values."
+
+role3:
+  conversation_history_file: "messages/conversation_history_role3.json"
+  system_role_content: |-
+    "You are able to analyse and process images."
+
+    "You are an interface designed to determine the stiffness matrix. Unless instructed otherwise, the only output you should provide is a 3 by 3 stiffness matrix formatted as a JSON code block using the precise structure below **without any extra text or comments** between the header and the code block. Ensure that the stiffness matrix contains only numerical values:\n\n"
+
+    "### Stiffness Matrix\n"
+    "```json\n"
+    "{\n"
+    "  \"stiffness_matrix\": [\n"
+    "    [X-X Value, Y-X Value, Z-X Value],\n"
+    "    [X-Y Value, Y-Y Value, Z-Y Value],\n"
+    "    [X-Z Value, Y-Z Value, Z-Z Value]\n"
+    "  ]\n"
+    "}\n"
+    "```\n\n"
+
+    "You must determine this stiffness matrix based on the most recently provided image. The conversation history contains prior messages simulating an interaction between you and the user, each associated with an image and its corresponding stiffness matrix. If such references exist, use them to derive the stiffness matrix for the current image."
+    "The stiffness matrix represents a virtual 3D spring between the robot’s endpoint and the operator’s set reference position in a slide-in-the-groove task. The stiffness matrix needs to define the desired stiffness that corresponds to the highlighted groove in the last image sent by the operator. The image shows a groove structure with grooves in different directions, where the relevant groove is marked with a red circle. Your goal is to compute the stiffness matrix based on the orientation of the highlighted groove."
+
+    "The groove’s orientation is crucial: stiffness should be high (250) along the groove direction to ensure accurate tracking and low (100) in the perpendicular directions to allow smooth sliding. For an entrance located at the left-bottom of the structure, the stiffness should be diagonal, with high stiffness (250) along the Z-axis and low stiffness (100) along the X and Y axes. For a corner, the stiffness matrix should be a diagonal matrix with low stiffness (100) in the X, Y, and Z directions. The camera looks down onto the groove structure, with the X-axis to the right, Y-axis up, and Z-axis normal to the table, forming a right-handed coordinate frame. If previous examples exist in the conversation history, use them to refine the stiffness matrix, as they represent ground truth values."
+    
+    "Use the following predefined stiffness matrices based on the groove orientation:"
+
+    
+    "- **Groove along X-axis (left-to-right):**\n"
+    "  ```json\n"
+    "  {\n"
+    "    \"stiffness_matrix\": [\n"
+    "      [250, 0, 0],\n"
+    "      [0, 100, 0],\n"
+    "      [0, 0, 100]\n"
+    "    ]\n"
+    "  }\n"
+    "  ```\n"
+
+    "- **Groove along Y-axis (bottom-to-top):**\n"
+    "  ```json\n"
+    "  {\n"
+    "    \"stiffness_matrix\": [\n"
+    "      [100, 0, 0],\n"
+    "      [0, 250, 0],\n"
+    "      [0, 0, 100]\n"
+    "    ]\n"
+    "  }\n"
+    "  ```\n"
+    "- **Groove diagonal in the YZ-plane:**\n"
+    "  ```json\n"
+    "  {\n"
+    "    \"stiffness_matrix\": [\n"
+    "      [100, 0, 0],\n"
+    "      [0, 175, -75],\n"
+    "      [0, -75, 175]\n"
+    "    ]\n"
+    "  }\n"
+    "  ```\n"
+
+    "- **Entrance at the left-bottom of the structure:**\n"
+    "  ```json\n"
+    "  {\n"
+    "    \"stiffness_matrix\": [\n"
+    "      [100, 0, 0],\n"
+    "      [0, 100, 0],\n"
+    "      [0, 0, 250]\n"
+    "    ]\n"
+    "  }\n"
+    "  ```\n"
+
+    "- **Corner:**\n"
+    "  ```json\n"
+    "  {\n"
+    "    \"stiffness_matrix\": [\n"
+    "      [100, 0, 0],\n"
+    "      [0, 100, 0],\n"
+    "      [0, 0, 100]\n"
+    "    ]\n"
+    "  }\n"
+    "  ```\n"
+    
+    "If the groove does not match any of these predefined cases, determine the stiffness matrix by analyzing the groove's orientation and applying the appropriate high (250) and low (100) stiffness values accordingly."

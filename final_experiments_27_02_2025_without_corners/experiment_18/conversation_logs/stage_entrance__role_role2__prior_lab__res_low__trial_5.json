@@ -1,0 +1,26 @@
+[
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "What is the stiffness matrix for this part of the groove structure?"
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://prompt-engineering-experiment.ngrok.io/images/ent.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "The red circle this time highlights a groove section that runs diagonally from the lower-left to upper-right in the X\u2013Y plane.\n\n**Assumptions**\n1. High stiffness along the diagonal in X and Y.\n2. Z-axis remains at 100, accommodating groove navigation.\n\n### Stiffness Matrix\n```json\n{\n  \"stiffness_matrix\": [\n    [175, 75, 0],\n    [75, 175, 0],\n    [0, 0, 100]\n  ]\n}\n```"
+      }
+    ]
+  }
+]

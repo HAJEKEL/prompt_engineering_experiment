@@ -1,0 +1,422 @@
+[
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 1,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_1.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 2,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        75
+      ],
+      [
+        0,
+        75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_2.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 3,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_3.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 4,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_4.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 5,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        75
+      ],
+      [
+        0,
+        75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_5.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 6,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_6.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 7,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_7.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 8,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        75
+      ],
+      [
+        0,
+        75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_8.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 9,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_9.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 10,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_10.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 11,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        100,
+        0
+      ],
+      [
+        0,
+        0,
+        100
+      ]
+    ],
+    "metrics": {
+      "correct": false
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_11.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 12,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_12.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 13,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_13.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 14,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_14.json"
+  },
+  {
+    "stage": "slant",
+    "role": "role3",
+    "conversation_prior": "lab",
+    "resolution": "high",
+    "repetition": 15,
+    "estimated_matrix": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        175,
+        -75
+      ],
+      [
+        0,
+        -75,
+        175
+      ]
+    ],
+    "metrics": {
+      "correct": true
+    },
+    "conv_history_file": "experiment_slant_ideal_last_9/conversation_logs/stage_slant__role_role3__prior_lab__res_high__trial_15.json"
+  }
+]

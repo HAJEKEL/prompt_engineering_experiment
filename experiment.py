@@ -29,15 +29,13 @@ def main():
         gt_stiffness_data = yaml.safe_load(f)
 
     # List of stage names
-    stages = ["entrance", "ytraverse1", "corner1", "xtraverse", "corner2", "slant"]
+    stages = ["entrance", "ytraverse1", "xtraverse", "slant"]
 
     # Mapping from stage names to anonymized image filenames
     stage_image_map = {
         "entrance": "ent",
         "ytraverse1": "y1t",
-        "corner1": "c1t",
         "xtraverse": "xt",
-        "corner2": "c2t",
         "slant": "st"
     }
 
